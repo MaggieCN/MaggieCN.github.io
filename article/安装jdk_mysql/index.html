@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          About - MaggieCN | Blog
+          MaggieCN | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/about/">
+    <link rel="canonical" href="http://www.ruozedata.com/article/安装jdk_mysql/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/about.jpg')
-            /*page*/
+            background-image: url('/img/article_header/maggie_head.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>About</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">走在成为极客的路上</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Maggie on
+                            2020-11-17
+                        </span>
                     </div>
                 
 
@@ -191,198 +197,275 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h3 id="一句话">一句话</h3>
-<blockquote>
-<p>若泽数据创始人，江湖人称 黑客大叔(早期) 和 J哥</p>
-</blockquote>
-<h3 id="关于我">关于我</h3>
-<blockquote>
-<p>主要从事大数据平台产品的技术工作；<br>
-负责基于Spark、Flink生产开发及性能调优；<br>
-负责对公司的CDH集群(超千台)的部署、监控、调优和运营；<br>
-主导我司的离线数仓、实时数仓、实时大数据中间件项目；<br>
-此外,精通Scala、Java、Shell、Python编程；<br>
-且荣获2016年IBM的Spark大赛全球第四名，中国区域第一名(奖金7.5W)。</p>
-</blockquote>
-<h3 id="参与">参与</h3>
-<blockquote>
-<p>若泽数据官网:<a href="http://www.ruozedata.com">http://www.ruozedata.com</a></p>
-<p>若泽数据Github:<a href="https://github.com/ruozedata" target="_blank" rel="noopener">https://github.com/ruozedata</a></p>
-</blockquote>
-<h3 id="联系我">联系我</h3>
-<blockquote>
-<p>WX: hackeruncle</p>
-</blockquote>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <p>title: &quot;jdk-mysql&quot;<br>
+catalog: true<br>
+toc_nav_num: true<br>
+date: 2020-11-14 22:00:00<br>
+subtitle: &quot;安装配置jdk-mysql-dbeaver.&quot;<br>
+header-img: &quot;/img/article_header/article_header.png&quot;<br>
+tags:</p>
+<ul>
+<li>linux<br>
+catagories:</li>
+<li>maggie<br>
+updateDate: 2020-11-14 23:00:00<br>
+top: 2</li>
+</ul>
+<h4 id="安装jdk-重点修改组-用户组">安装jdk （ 重点修改组、用户组）</h4>
+<h5 id="安装">安装</h5>
+<p>、、、</p>
+<p>rz</p>
+<p>ll</p>
+<p>mkdir -p /usr/java/</p>
+<p>tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</p>
+<p>cd /usr/java</p>
+<p>ll</p>
+<p>chown -R root:root  jdk1.8.0_181</p>
+<p>vi /etc/profile</p>
+<p>G 键</p>
+<p>i 键</p>
+<p>#Maggie java env<br>
+export JAVA_HOME=/usr/java/jdk1.8.0_181<br>
+export PATH=$JAVA_HOME/bin:$PATH</p>
+<p>esc键</p>
+<p>:wq</p>
+<p>source  /etc/profile</p>
+<p>java -version</p>
+<p>which java</p>
+<p>、、、</p>
+<h6 id="第一步上传jdk文件从windows到linux">第一步：上传jdk文件从windows到linux</h6>
+<ul>
+<li>
+<p>上传命令：rz</p>
+</li>
+<li>
+<p>目前jdk的这个tar包是在根目录下，可以查看一下</p>
+</li>
+<li>
+<p>查看命令: ll</p>
+<p>、、、</p>
+<p>[root@hadoop001 ~]# ll</p>
+<p>、、、</p>
+</li>
+</ul>
+<h6 id="第二步创建java文件夹在usr路径下">第二步：创建java文件夹，在/usr/路径下</h6>
+<ul>
+<li>命令：mkdir -p /usr/java/</li>
+</ul>
+<h6 id="第三步解压缩tar包到指定目录">第三步：解压缩tar包到指定目录</h6>
+<ul>
+<li>命令：tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</li>
+<li><u>在按到jdk的时候可以按一下tab键自动补全【新手请记住】</u></li>
+</ul>
+<h6 id="第四步-cd-到java路径下查看">第四步： cd 到java路径下查看</h6>
+<ul>
+<li>命令1： cd /usr/java</li>
+<li>命令2：ll</li>
+</ul>
+<p>​	可以看到已经产生了一个jdk-8u181的文件夹</p>
+<h6 id="第五步更改用户用户组">第五步：更改用户，用户组</h6>
+<ul>
+<li>命令： chown -R root:root  jdk1.8.0_181</li>
+</ul>
+<p>​	drwxr-xr-x 7 10 143 4096 Jul  7  2018 jdk1.8.0_181</p>
+<ul>
+<li>
+<p>对应权限是755 用户 10 用户组143</p>
+</li>
+<li>
+<p>d 代表文件夹</p>
+</li>
+<li>
+<p>rwx  文件或者文件夹的所属用户有读写执行功能</p>
+</li>
+<li>
+<p>r-x  文件或者文件夹的所属用户组的成员，只有读写功能</p>
+</li>
+<li>
+<p>r-x 用户组的其他成员对这个文件或文件夹的权限，只有读写功能</p>
+</li>
+</ul>
+<p><u>更改后的： drwxr-xr-x 7 root root 4096 Jul  7  2018 jdk1.8.0_181</u></p>
+<h6 id="第六步-配置环境变量">第六步： 配置环境变量</h6>
+<p>jdk是一个全局的环境变量</p>
+<ul>
+<li>命令：vi /etc/profile</li>
+<li>大写的G到最后一行</li>
+<li>i 键 进入编辑模式</li>
+<li>#Maggie java env<br>
+export JAVA_HOME=/usr/java/jdk1.8.0_181<br>
+export PATH=$JAVA_HOME/bin:$PATH</li>
+<li>esc 键 再按 :wq 保存退出</li>
+</ul>
+<h6 id="第七步环境变量生效">第七步环境变量生效</h6>
+<ul>
+<li>命令： source  /etc/profile</li>
+</ul>
+<h6 id="第八步-检查是否安装成功是否生效">第八步 检查是否安装成功/是否生效</h6>
+<ul>
+<li>命令：java -version</li>
+<li>或者命令：which java</li>
+</ul>
+<h4 id="安装mysql">安装mysql</h4>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/ruozedata/" data-toggle="tooltip" data-placement="top" title="Join ruozedata if you have a dream">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
                 <br>
 
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
-                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+                <!-- duoshuo Share start -->
                 
-                    <div class="aplayer"
-                        data-id="2423410161"
-                        data-server="netease"
-                        data-type="playlist"
-                        data-fixed="false" >
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
                     </div>
+                </section>
                 
 
-                <!-- 如果开启评论功能 -->
+                <!-- Friends Blog -->
                 
-                    <hr>
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
 
                     
-
+                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
                     
-
-                    
-
-                    
-
-                    
-
-                    
-
+                </ul>
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-            
-        
-            
-            <a href="/tags/#ruozedata" title="ruozedata" rel="1">ruozedata</a>
-            
-        
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/avatar/Jepson.jpg" />
-        
 
-        
-            <p>大数据小白-在学，请多指教</p>
-        
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
 
-            
 
-            
 
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/hackeruncle">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/安装jdk_mysql/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/ruozedata/">Join ruozedata if you have a dream</a>
-        </li>
-      
-        <li>
-          <a href="/article/hexo-theme-jepson/">[Hexo] Theme Jepson</a>
-        </li>
-      
-    </ul>
-  </div>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'rz'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        <hr>
-    
-        <!-- Friends Blog -->
 
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
-    
-</ul>
-
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->
