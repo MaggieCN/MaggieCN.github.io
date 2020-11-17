@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          MaggieCN | Blog
+          JDK-MySQL 安装部署 - MaggieCN | Blog
         
     </title>
 
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/maggie_head.jpg')
+            background-image: url('/img/article_header/article_header.png')
             /*post*/
         
     }
@@ -88,12 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#linux" title="linux">linux</a>
+                            
+                              <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                            
                         </div>
-                        <h1></h1>
-                        <h2 class="subheading"></h2>
+                        <h1>JDK-MySQL 安装部署</h1>
+                        <h2 class="subheading">jdk踩坑-mysql开机自动启动-dbeaver</h2>
                         <span class="meta">
                             Posted by Maggie on
-                            2020-11-17
+                            2020-11-14
                         </span>
                     </div>
                 
@@ -140,7 +144,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -154,7 +158,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -210,42 +214,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>title: &quot;jdk-mysql&quot;<br>
-catalog: true<br>
-toc_nav_num: true<br>
-date: 2020-11-14 22:00:00<br>
-subtitle: &quot;安装配置jdk-mysql-dbeaver.&quot;<br>
-header-img: &quot;/img/article_header/article_header.png&quot;<br>
-tags:</p>
-<ul>
-<li>linux<br>
-catagories:</li>
-<li>maggie<br>
-updateDate: 2020-11-14 23:00:00<br>
-top: 2</li>
-</ul>
-<h4 id="安装jdk-重点修改组-用户组">安装jdk （ 重点修改组、用户组）</h4>
+                <h4 id="安装jdk-重点修改组-用户组">安装jdk （ 重点修改组、用户组）</h4>
 <h5 id="安装">安装</h5>
-<p>、、、</p>
-<p>rz</p>
-<p>ll</p>
-<p>mkdir -p /usr/java/</p>
-<p>tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</p>
-<p>cd /usr/java</p>
-<p>ll</p>
-<p>chown -R root:root  jdk1.8.0_181</p>
-<p>vi /etc/profile</p>
-<p>G 键</p>
-<p>i 键</p>
-<p>#Maggie java env<br>
-export JAVA_HOME=/usr/java/jdk1.8.0_181<br>
-export PATH=$JAVA_HOME/bin:$PATH</p>
-<p>esc键</p>
-<p>:wq</p>
-<p>source  /etc/profile</p>
-<p>java -version</p>
-<p>which java</p>
-<p>、、、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">mkdir -p /usr/java/</span><br><span class="line"></span><br><span class="line">tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</span><br><span class="line"></span><br><span class="line">cd /usr/java </span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line"> chown -R root:root  jdk1.8.0_181</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">G 键</span><br><span class="line"></span><br><span class="line">i 键</span><br><span class="line"></span><br><span class="line">#Maggie java env</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">esc键</span><br><span class="line"></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line"> source  /etc/profile</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">which java</span><br></pre></td></tr></table></figure>
 <h6 id="第一步上传jdk文件从windows到linux">第一步：上传jdk文件从windows到linux</h6>
 <ul>
 <li>
@@ -256,9 +227,6 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
 </li>
 <li>
 <p>查看命令: ll</p>
-<p>、、、</p>
-<p>[root@hadoop001 ~]# ll</p>
-<p>、、、</p>
 </li>
 </ul>
 <h6 id="第二步创建java文件夹在usr路径下">第二步：创建java文件夹，在/usr/路径下</h6>
@@ -373,6 +341,18 @@ export PATH=$JAVA_HOME/bin:$PATH</li>
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装jdk-重点修改组-用户组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk &#xFF08; &#x91CD;&#x70B9;&#x4FEE;&#x6539;&#x7EC4;&#x3001;&#x7528;&#x6237;&#x7EC4;&#xFF09;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第一步上传jdk文件从windows到linux"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0A;&#x4F20;jdk&#x6587;&#x4EF6;&#x4ECE;windows&#x5230;linux</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第二步创建java文件夹在usr路径下"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;java&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;/usr/&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第三步解压缩tar包到指定目录"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x89E3;&#x538B;&#x7F29;tar&#x5305;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第四步-cd-到java路径下查看"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A; cd &#x5230;java&#x8DEF;&#x5F84;&#x4E0B;&#x67E5;&#x770B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第五步更改用户用户组"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x66F4;&#x6539;&#x7528;&#x6237;&#xFF0C;&#x7528;&#x6237;&#x7EC4;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第六步-配置环境变量"><span class="toc-nav-number">1.1.6.</span> <span class="toc-nav-text">&#x7B2C;&#x516D;&#x6B65;&#xFF1A; &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第七步环境变量生效"><span class="toc-nav-number">1.1.7.</span> <span class="toc-nav-text">&#x7B2C;&#x4E03;&#x6B65;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第八步-检查是否安装成功是否生效"><span class="toc-nav-number">1.1.8.</span> <span class="toc-nav-text">&#x7B2C;&#x516B;&#x6B65; &#x68C0;&#x67E5;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;/&#x662F;&#x5426;&#x751F;&#x6548;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装mysql"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;mysql</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
                 
             <!-- Sidebar Container -->
             <div class="
@@ -387,6 +367,10 @@ export PATH=$JAVA_HOME/bin:$PATH</li>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#linux" title="linux">linux</a>
+                        
+                          <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                        
                     </div>
                 </section>
                 
