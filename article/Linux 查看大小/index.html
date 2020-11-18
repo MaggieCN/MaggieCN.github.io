@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          MaggieCN | Blog
+          Linux 查看大小 - MaggieCN | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/article/Linux 内在结构/">
+    <link rel="canonical" href="http://www.ruozedata.com/article/Linux 查看大小/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,12 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#linux" title="linux">linux</a>
+                            
                         </div>
-                        <h1></h1>
-                        <h2 class="subheading"></h2>
+                        <h1>Linux 查看大小</h1>
+                        <h2 class="subheading">linux基础中的基础--必须掌握哦</h2>
                         <span class="meta">
                             Posted by Maggie on
-                            2020-11-18
+                            2020-11-15
                         </span>
                     </div>
                 
@@ -140,13 +142,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -155,6 +150,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -210,120 +212,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="用户-用户组">用户、用户组</h3>
-<p>用户 /etc/passwd</p>
-<p>用户组 /etc/group</p>
-<p>切换用户： su <strong>-</strong> xx</p>
-<p>删除用户:  userdel xx</p>
-<p><strong>[面试题]</strong> 删除用户，那么该用户所属的用户组假如没有其他用户，则一起删除；否则有其他用户就被删除不了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-x--- 1 root root 118192 Nov  6  2016 /usr/sbin/useradd //用户添加</span><br><span class="line"></span><br><span class="line">-rwxr-x--- 1 root root  80360 Nov  6  2016 /usr/sbin/userdel //用户删除</span><br><span class="line"></span><br><span class="line">-rwxr-x--- 1 root root 113840 Nov  6  2016 /usr/sbin/usermod //用户修改</span><br><span class="line"></span><br><span class="line">-rwsr-xr-x 1 root root  11296 Apr 13  2017 /usr/sbin/usernetctl //网络接口</span><br><span class="line"></span><br><span class="line">-rwxr-x--- 1 root root 65480 Nov  6  2016 /usr/sbin/groupadd  //组添加</span><br><span class="line"></span><br><span class="line">-rwxr-x--- 1 root root 57016 Nov  6  2016 /usr/sbin/groupdel // 组删除</span><br><span class="line"></span><br><span class="line">-rwxr-x--- 1 root root 57064 Nov  6  2016 /usr/sbin/groupmems //用户主组的管理员成员</span><br><span class="line"></span><br><span class="line">-rwxr-x--- 1 root root 76424 Nov  6  2016 /usr/sbin/groupmod //组修改</span><br></pre></td></tr></table></figure>
-<p><strong>【样式丢失】 当前用户的所属家目录的 个人环境变量文件不存在</strong></p>
-<p>[root@hadoop001 ~]# su - xx</p>
-<p>-bash-4.2$</p>
-<p>[root@hadoop001 ~]# rm -f /home/xx/.bash*</p>
-<p>[root@hadoop001 ~]# su - xx</p>
-<p>-bash-4.2$ cp /etc/skel/.* /home/xx/</p>
-<p>一个用户默认船舰的家目录是在 /home/ 用户名，但是后期是可以修改的</p>
-<p>将所属的用户重定向到其他文件夹下 usermod -d /tmp xx</p>
-<p>添加用户到新的用户组</p>
-<p>主组 primary group  -g</p>
-<p>其他组 -a -G</p>
-<p>这个是加入其他组：</p>
-<p>[root@hadoop001 ~]# usermod -a -G dw  xx</p>
-<p>[root@hadoop001 ~]# id xx</p>
-<p>uid=1000(xx) gid=1000(xx) groups=1000(xx),1001(dw)</p>
-<p>**【问题解决】**出现登录不进去某个用户/或者jps查看进程不可用</p>
-<p>su - hdfs 之前把 vi /etc/passwd 用户里hdfs 用户的/bin/false 改为/bin/bash</p>
-<p><strong>3. su sudo</strong></p>
-<p>su xx 切换用户</p>
-<p>su - xx 切换用户 进入家目录 且执行该用户环境变量文件 .bashrc</p>
-<p>sudo 普通用户临时使用root的最大权限</p>
-<p><strong>[错误2] Permission denied 没权限</strong></p>
-<p><strong>配置xx用户是有sudo 权限的</strong></p>
-<p>vi /etc/sudoers</p>
-<p>xx ALL=(root) NOPASSED:ALL</p>
-<p>readonly file  :wq|! 强制保存退出</p>
-<p>生产场景：用户的权限不满足需求，需要更高的，假如IT 和公司管理制度都还好，就要求加sudo权限。否则碰见这种权限错误的操作，只能让对应的IT人员操作。</p>
-<p><strong>4. 权限</strong></p>
-<p>d rwx r-x r-x</p>
-<p>- rw- r-- r–</p>
-<p>第一个字符 d 代表文件夹 -文件</p>
-<p>-rw-r–r-- 1 root root   0 Nov  8 21:18 ruoze.log</p>
-<p>接下来三组的 三个字母 分别是代表 读r 4 、写w  2 、执x 1、-没有任何权限 0</p>
-<p>第一组： rw-  文件或者文件夹的所属用户，只有读写权限，没有执行权限</p>
-<p>第二组： r--  文件或者文件夹的所属用户组的成员，只有读</p>
-<p>第三组： r--  其他用户组的成员对这个文件或文件夹的权限，只有读</p>
-<p>rw- r-- r-- ==》 644</p>
-<p>未来给出一个数字，你们能够迅速反应出对应的权限</p>
-<p>比如：</p>
-<p>777  rwxrwxrwx</p>
-<p>755  rwxr-xr-x</p>
-<p>640  rw-r-----</p>
-<p>600  rw-------</p>
-<p>[root@ruozedata001 tmp]# ll</p>
-<p>-rw-r–r-- 1 root   root   18 Nov  8 21:47 ruoze.log</p>
-<p>[root@ruozedata001 tmp]# chmod 640 ruoze.log</p>
-<p>-rw-r----- 1 root   root   18 Nov  8 21:47 ruoze.log</p>
-<p>[root@ruozedata001 tmp]# su - xx</p>
-<p>-bash-4.2$ cat /tmp/ruoze.log</p>
-<p>cat: /tmp/ruoze.log: Permission denied</p>
-<p><strong>5.权限命令</strong></p>
-<p>chmod -R 777           文件或者文件夹</p>
-<p>chown -R 用户:用户组   文件或者文件夹</p>
-<p>-rw-r–r-- 1 root   root   18 Nov  8 21:47 ruoze.log</p>
-<p>[root@ruozedata001 tmp]# chown xx:xx ruoze.log</p>
-<p>[root@ruozedata001 tmp]# ll</p>
-<p>-rw-r–r-- 1 xx     xx     18 Nov  8 21:47 ruoze.log</p>
-<p><strong>6.大小</strong></p>
-<p>文件大小： ll -h</p>
-<p>文件或文件夹大小 ： du -sh</p>
-<p>[root@ruozedata001 ~]#</p>
-<p>[root@ruozedata001 ~]# du -sh /usr/local</p>
-<p>11G     /usr/local</p>
-<p><strong>7.搜索  find</strong></p>
-<p>[root@ruozedata001 ~]# find / -name ‘<em>hadoop</em>’</p>
-<p>[root@ruozedata001 ~]# find /home/ -name ‘<em>hadoop</em>’</p>
-<p>history 去看看常规操作在哪里 蛛丝马迹</p>
-<p>find 搜索</p>
-<p>ps -ef 查看进程</p>
-<p><strong><a href="http://8.vi" target="_blank" rel="noopener">8.vi</a> 编辑</strong></p>
-<p>【良好习惯】：</p>
-<p>vi 编辑生产配置文件</p>
-<p>先 cp conf  conf20201108</p>
-<p>vi 敲完 wq也保存，也不怕</p>
-<p><strong>进入提示是 swap文件，只需ll -a查看，进行删除即可</strong></p>
-<p>E325: ATTENTION</p>
-<p>Found a swap file by the name “.rz.txt.swp”</p>
-<p>​          owned by: root   dated: Sun Nov  8 22:17:56 2020</p>
-<p>​         file name: ~root/rz.txt</p>
-<p><strong>粘贴的坑:</strong></p>
-<p>必须进入编辑模式 ，否则第一行内容丢失 不完整 【生产具坑】</p>
-<p>在命令行模式，常用的快捷方式:</p>
-<p>dd  删除当前行             【常用】</p>
-<p>dG  删除当前行及以下所有行 【常用】</p>
-<p>ndd 删除当前行及以下n-1行</p>
-<p>gg 跳转到第一行的第一个字母</p>
-<p>G  跳转到最后一行的第一个字母</p>
-<p>shift+$ 行尾</p>
-<p>如何通过vi命令进行清空文件内容：</p>
-<p>gg dG</p>
-<p>生产场景：window电脑的服务的配置文件内容修改过 最新的，想要覆盖生产的文件</p>
-<p>gg dG</p>
-<p>i</p>
-<p>从window电脑拷贝全局内容</p>
-<p>到Linux的会话编辑模式中，按鼠标的右键 粘贴</p>
-<p>esc</p>
-<p>shfit+:  wq</p>
-<p>完成，一气呵成</p>
-<p>行号</p>
-<p>尾行模式 set nu</p>
-<p>​         set nonu</p>
-<p>log4j 日志组件</p>
-<p>规则：大小为100M 保留10份</p>
-<p>erp.log</p>
-<p>mv erp.log  erp.log1</p>
-<p>touch erp.log</p>
-<p><strong>cd - 回退到上一次命令</strong></p>
+                <h3 id="磁盘大小">磁盘大小</h3>
 
                 
 
@@ -331,9 +220,13 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/article/Untitled/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
-                            <a href="/article/Linux 高危命令/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                            <a href="/article/安装jdk_mysql/" data-toggle="tooltip" data-placement="top" title="JDK-MySQL 安装部署">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -377,6 +270,18 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#磁盘大小"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x78C1;&#x76D8;&#x5927;&#x5C0F;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
                 
             <!-- Sidebar Container -->
             <div class="
@@ -391,6 +296,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#linux" title="linux">linux</a>
+                        
                     </div>
                 </section>
                 

@@ -142,13 +142,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -157,6 +150,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,8 +213,20 @@
                 post-container">
 
                 <h3 id="command-not-found">command not found</h3>
+<p>原因：没有安装或者没有配置环境变量</p>
+<h3 id="permission-defied">permission defied</h3>
+<p>原因：没有权限，检查权限（用户、用户组）</p>
+<p><strong>配置xx用户是有sudo 权限的</strong></p>
+<p>vi /etc/sudoers</p>
+<p>xx ALL=(root) NOPASSED:ALL</p>
+<p>readonly file  :wq|! 强制保存退出</p>
+<p>生产场景：用户的权限不满足需求，需要更高的，假如IT 和公司管理制度都还好，就要求加sudo权限。否则碰见这种权限错误的操作，只能让对应的IT人员操作。</p>
 <h3 id="样式丢失">样式丢失</h3>
-<p>当前用户的所属家目录的 个人环境变量文件不存在</p>
+<p>[root@hadoop001 ~]# su - xx</p>
+<p>-bash-4.2$</p>
+<p>[root@hadoop001 ~]# rm -f /home/xx/.bash*</p>
+<p>[root@hadoop001 ~]# su - xx</p>
+<p>-bash-4.2$ cp /etc/skel/.* /home/xx/</p>
 
                 
 
@@ -223,7 +235,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Linux 基础命令/" data-toggle="tooltip" data-placement="top" title="Linux 基础命令">&larr; Previous Post</a>
+                            <a href="/article/Linux 高危命令/" data-toggle="tooltip" data-placement="top" title="Linux 高危命令-更新中ing">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -274,7 +286,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#command-not-found"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">command not found</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#样式丢失"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6837;&#x5F0F;&#x4E22;&#x5931;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#command-not-found"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">command not found</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#permission-defied"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">permission defied</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#样式丢失"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x6837;&#x5F0F;&#x4E22;&#x5931;</span></a></li></ol>
         
         </div>
       </aside>
