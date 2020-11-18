@@ -144,6 +144,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -152,13 +159,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -315,7 +315,7 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
 </li>
 </ul>
 <p>所有命令汇总：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">mkdir -p /usr/java/</span><br><span class="line"></span><br><span class="line">tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</span><br><span class="line"></span><br><span class="line">cd /usr/java </span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">chown -R root:root  jdk1.8.0_181</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">G 键</span><br><span class="line"></span><br><span class="line">i 键</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">Maggie java env</span></span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">esc键</span><br><span class="line"></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line">source  /etc/profile</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">which java</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">mkdir -p /usr/java/</span><br><span class="line"></span><br><span class="line">tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</span><br><span class="line"></span><br><span class="line">cd /usr/java </span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">chown -R root:root  jdk1.8.0_181</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">G 键</span><br><span class="line"></span><br><span class="line">i 键</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>Maggie java env</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">esc键</span><br><span class="line"></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line">source  /etc/profile</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">which java</span><br></pre></td></tr></table></figure>
 <h4 id="安装mysql">安装mysql</h4>
 
                 
@@ -326,7 +326,7 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
                     
                     
                         <li class="next">
-                            <a href="/article/ruozedata/" data-toggle="tooltip" data-placement="top" title="Join ruozedata if you have a dream">Next Post &rarr;</a>
+                            <a href="/article/Linux 错误命令合集/" data-toggle="tooltip" data-placement="top" title="Linux 错误提示">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
