@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -272,17 +272,107 @@
 
 <div class="post-preview">
 
-    <a href="/article/Linux 错误命令合集/">
+    <a href="/article/Linux 内在结构/">
         <h2 class="post-title">
                                  
-            Linux 错误提示
+            Untitled
         </h2>
         <h3 class="post-subtitle">
-            linux常见错误提示/原因
+            
         </h3>
         <div class="post-content-preview">
-            command not found
+            用户、用户组
+用户 /etc/passwd
+用户组 /etc/group
+切换用户： su - xx
+删除用户:  userdel xx
+[面试题] 删除用户，那么该用户所属的用户组假如没有其他用户，则一起删除；否则有其他用户就被删除不了。
+123456789101112131415-rwxr-x--- 1 root root 118192 Nov  6  2016 /usr/sbin/us......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-18
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Linux 高危命令/">
+        <h2 class="post-title">
+                                 
+            Untitled
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            在做删除、替换等操作的时候一定要先备份！！！
+rm
+1rm -rf /
+1rm --help
+
+
+r, R remove directories and their contents recursive
+
+
+f force 强制
+
+
+&gt;
+
+这个符号表示覆盖
+
 ...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-18
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Linux 基础命令/">
+        <h2 class="post-title">
+                                 
+            Linux 基础命令
+        </h2>
+        <h3 class="post-subtitle">
+            linux基础中的基础--必须掌握哦
+        </h3>
+        <div class="post-content-preview">
+            ls系列 显示当前文件夹下 文件的名称
+
+
+ls -l 权限 用户 用户组 时间 大小 == ll
+
+
+ls -l -a 显示隐藏文件                   == ls -la
+
+
+ls -l -h  仅仅查看文件的大小      == ls -lh
+
+
+ls -l -r -t 按时间排序 顺序           == ls -lrt
+
+
+ls -l -t 按时间排序 倒序 ......
         </div>
     </a>
     
@@ -302,31 +392,19 @@
 
 <div class="post-preview">
 
-    <a href="/article/Linux 基础命令/">
+    <a href="/article/Linux 错误命令合集/">
         <h2 class="post-title">
                                  
-            Linux 基础命令
+            Linux 错误提示
         </h2>
         <h3 class="post-subtitle">
-            linux基础中的基础--必须掌握哦
+            linux常见错误提示/原因
         </h3>
         <div class="post-content-preview">
-            1. ls系列 显示当前文件夹下 文件的名称
-
-
-ls -l 权限 用户 用户组 时间 大小 == ll
-
-
-ls -l -a 显示隐藏文件                   == ls -la
-
-
-ls -l -h  仅仅查看文件的大小      == ls -lh
-
-
-ls -l -r -t 按时间排序 顺序           == ls -lrt
-
-
-ls -l -t 按时间排序 ......
+            command not found
+样式丢失
+当前用户的所属家目录的 个人环境变量文件不存在
+...
         </div>
     </a>
     
@@ -441,15 +519,23 @@ ls -l -t 按时间排序 ......
     <ul>
       
         <li>
+          <a href="/article/Linux 内在结构/">(no title)</a>
+        </li>
+      
+        <li>
+          <a href="/article/Linux 高危命令/">(no title)</a>
+        </li>
+      
+        <li>
           <a href="/article/安装jdk_mysql/">JDK-MySQL 安装部署</a>
         </li>
       
         <li>
-          <a href="/article/Linux 错误命令合集/">Linux 错误提示</a>
+          <a href="/article/Linux 基础命令/">Linux 基础命令</a>
         </li>
       
         <li>
-          <a href="/article/Linux 基础命令/">Linux 基础命令</a>
+          <a href="/article/Linux 错误命令合集/">Linux 错误提示</a>
         </li>
       
     </ul>
@@ -472,7 +558,7 @@ ls -l -t 按时间排序 ......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>

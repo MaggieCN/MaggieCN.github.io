@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -212,7 +212,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="1-ls系列-显示当前文件夹下-文件的名称">1. ls系列 显示当前文件夹下 文件的名称</h3>
+                <h3 id="ls系列-显示当前文件夹下-文件的名称">ls系列 显示当前文件夹下 文件的名称</h3>
 <ul>
 <li>
 <h6 id="ls-l-权限-用户-用户组-时间-大小-ll">ls -l 权限 用户 用户组 时间 大小 == ll</h6>
@@ -231,11 +231,12 @@
 </li>
 </ul>
 <hr>
-<h3 id="2-cd-系列-跳转到某一路径">2. cd 系列 跳转到某一路径</h3>
+<h3 id="cd-系列-跳转到某一路径">cd 系列 跳转到某一路径</h3>
 <ul>
-<li>
-<h6 id="根目录">根目录                                        /</h6>
-</li>
+<li>根目录                                      /</li>
+<li>回退到上一次                           cd -</li>
+</ul>
+<ul>
 <li>
 <p>切换到指定目录                       cd dir</p>
 </li>
@@ -255,24 +256,14 @@
 </li>
 </ul>
 <hr>
-<h3 id="3-clear-清理屏幕">3.  clear 清理屏幕</h3>
-<p>​	让光标的位置跳打屏幕最顶端，但是之前内容不会消失。</p>
-<h3 id="4-mv-ampamp-cp">4.  mv &amp;&amp; cp</h3>
+<h3 id="tab">tab</h3>
 <ul>
-<li>
-<p>mv 移动 始终是一份， 运行速度快</p>
-</li>
-<li>
-<p>cp 复制 最后结果是两份  运行速度慢</p>
-</li>
-<li>
-<p><strong>标准操作</strong></p>
-</li>
-<li>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp -r jepson2/ 1/jepson2 拷贝路径写全</span><br><span class="line"></span><br><span class="line">cp -r jepson33 1/jepson33 拷贝的时候是可以修改新建路径名称的</span><br><span class="line"></span><br><span class="line">mv jepson4 1/jepson4</span><br><span class="line"></span><br><span class="line">mv jepson4 1/jepson44 修改名称</span><br></pre></td></tr></table></figure>
-</li>
+<li>一次 匹配补齐</li>
+<li>两次 打印出匹配的所有</li>
 </ul>
-<h3 id="5必会-help-帮助命令">5.[必会] --help 帮助命令</h3>
+<h3 id="clear-清理屏幕">clear 清理屏幕</h3>
+<p>​	让光标的位置跳打屏幕最顶端，但是之前内容不会消失。</p>
+<h3 id="必会-help-帮助命令">[必会] --help 帮助命令</h3>
 <ul>
 <li>
 <p>命令帮助 help</p>
@@ -283,10 +274,10 @@
 <p>[] 内的可有可无</p>
 <p>Usage: ls [OPTION]…FILE]…</p>
 <p>命令后必须有file 名</p>
-<h3 id="6-创建文件-文件夹移动文件-文件夹">6. 创建文件、文件夹；移动文件、文件夹</h3>
 </li>
 </ul>
-<h6 id="创建文件">创建文件</h6>
+<h3 id="创建文件-文件夹">创建文件、文件夹</h3>
+<h4 id="创建文件">创建文件</h4>
 <ul>
 <li>
 <p>最常用的有两种：touch +文件名；vi +文件名（进入文件编辑模式）</p>
@@ -321,9 +312,20 @@
 </li>
 </ul>
 <hr>
-<h6 id="创建文件夹">创建文件夹</h6>
-<p>​	mkdir 创建文件夹</p>
-<h3 id="7-查看文件内容">7. 查看文件内容</h3>
+<h4 id="创建文件夹">创建文件夹</h4>
+<ul>
+<li>mkdir 创建文件夹</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir 1 2 3     并联创建文件夹</span><br><span class="line"></span><br><span class="line">mkdir -p 4/5/6  串联创建文件夹  级联</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="mv-ampamp-cp">mv &amp;&amp; cp</h3>
+<ul>
+<li>mv 移动 始终是一份， 运行速度快</li>
+<li>cp 复制 最后结果是两份  运行速度慢</li>
+<li><strong>标准操作</strong></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp -r jepson2/ 1/jepson2 拷贝路径写全</span><br><span class="line"></span><br><span class="line">cp -r jepson33 1/jepson33 拷贝的时候是可以修改新建路径名称的</span><br><span class="line"></span><br><span class="line">mv jepson4 1/jepson4</span><br><span class="line"></span><br><span class="line">mv jepson4 1/jepson44 修改名称</span><br></pre></td></tr></table></figure>
+<h3 id="查看文件内容">查看文件内容</h3>
 <ul>
 <li>
 <p>cat 文件内容全部显示 ctrl+z 中断 <strong>【适合内容少的】</strong></p>
@@ -379,21 +381,26 @@
 <p>​	: /ERROR</p>
 <p>​	按n 键寻找</p>
 <hr>
-<h3 id="8安装上传下载的">8.安装上传下载的</h3>
-<p>sudo yum install lrzsz -y</p>
+<h3 id="历史记录-history">历史记录 history</h3>
+<ul>
+<li>清空历史记录 history -c</li>
+<li>安装堡垒机的话，使用这个命令也不会清空历史记录</li>
+</ul>
+<h3 id="安装上传下载的">安装上传下载的</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install lrzsz -y</span><br></pre></td></tr></table></figure>
 <hr>
 <p>sz 20201109error.log 下载这个文件到windows</p>
 <p>坑：限速FTP 下载 或者尽量非高峰期下载</p>
-<h3 id="9-别名alias-简化复杂命令">9. 别名：alias 简化复杂命令</h3>
+<h3 id="别名alias-简化复杂命令">别名：alias 简化复杂命令</h3>
 <p>alias jlog=‘cd /var/log’  仅当前命令窗口可用， 没设置全局变量</p>
 <p>如果想设全局变量？往下戳</p>
-<h3 id="10-环境变量">10. 环境变量</h3>
+<h3 id="环境变量">环境变量</h3>
 <p>全局：/etc/profile</p>
 <p>source /etc/profile 新窗口生效，已经开启的会话不会跟着自动生效</p>
 <p>个人：~/.bash_profile</p>
 <p>​           _/.bashrc  <strong>[推荐]</strong></p>
 <p><strong>ssh 远程登陆的时候， 只会读取~/.bashrc这个文件里的内容，不会读取~/.bash_profile</strong></p>
-<p><a href="https://blog.csdn.net/whitehack/article/details/51705889" target="_blank" rel="noopener">https://blog.csdn.net/whitehack/article/details/51705889</a></p>
+<p>[具体解释][<a href="https://blog.csdn.net/whitehack/article/details/51705889" target="_blank" rel="noopener">https://blog.csdn.net/whitehack/article/details/51705889</a>]</p>
 
                 
 
@@ -402,9 +409,13 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Linux 错误命令合集/" data-toggle="tooltip" data-placement="top" title="Linux 错误提示">&larr; Previous Post</a>
+                            <a href="/article/安装jdk_mysql/" data-toggle="tooltip" data-placement="top" title="JDK-MySQL 安装部署">&larr; Previous Post</a>
                         </li>
                     
+                    
+                        <li class="next">
+                            <a href="/article/Linux 错误命令合集/" data-toggle="tooltip" data-placement="top" title="Linux 错误提示">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -453,7 +464,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-ls系列-显示当前文件夹下-文件的名称"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. ls&#x7CFB;&#x5217; &#x663E;&#x793A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B; &#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-权限-用户-用户组-时间-大小-ll"><span class="toc-nav-number">1.0.0.1.</span> <span class="toc-nav-text">ls -l &#x6743;&#x9650; &#x7528;&#x6237; &#x7528;&#x6237;&#x7EC4; &#x65F6;&#x95F4; &#x5927;&#x5C0F; == ll</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-a-显示隐藏文件-ls-la"><span class="toc-nav-number">1.0.0.2.</span> <span class="toc-nav-text">ls -l -a &#x663E;&#x793A;&#x9690;&#x85CF;&#x6587;&#x4EF6;                   == ls -la</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-h-仅仅查看文件的大小-ls-lh"><span class="toc-nav-number">1.0.0.3.</span> <span class="toc-nav-text">ls -l -h  &#x4EC5;&#x4EC5;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;      == ls -lh</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-r-t-按时间排序-顺序-ls-lrt"><span class="toc-nav-number">1.0.0.4.</span> <span class="toc-nav-text">ls -l -r -t &#x6309;&#x65F6;&#x95F4;&#x6392;&#x5E8F; &#x987A;&#x5E8F;           == ls -lrt</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-t-按时间排序-倒序-ls-lt"><span class="toc-nav-number">1.0.0.5.</span> <span class="toc-nav-text">ls -l -t &#x6309;&#x65F6;&#x95F4;&#x6392;&#x5E8F; &#x5012;&#x5E8F;               == ls -lt</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-cd-系列-跳转到某一路径"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. cd &#x7CFB;&#x5217; &#x8DF3;&#x8F6C;&#x5230;&#x67D0;&#x4E00;&#x8DEF;&#x5F84;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#根目录"><span class="toc-nav-number">2.0.0.1.</span> <span class="toc-nav-text">&#x6839;&#x76EE;&#x5F55;                                        /</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-clear-清理屏幕"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.  clear &#x6E05;&#x7406;&#x5C4F;&#x5E55;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-mv-ampamp-cp"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4.  mv &amp;&amp; cp</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5必会-help-帮助命令"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5.[&#x5FC5;&#x4F1A;] --help &#x5E2E;&#x52A9;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-创建文件-文件夹移动文件-文件夹"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. &#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x3001;&#x6587;&#x4EF6;&#x5939;&#xFF1B;&#x79FB;&#x52A8;&#x6587;&#x4EF6;&#x3001;&#x6587;&#x4EF6;&#x5939;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#创建文件"><span class="toc-nav-number">6.0.0.1.</span> <span class="toc-nav-text">&#x521B;&#x5EFA;&#x6587;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#创建文件夹"><span class="toc-nav-number">6.0.0.2.</span> <span class="toc-nav-text">&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939;</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-查看文件内容"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8安装上传下载的"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8.&#x5B89;&#x88C5;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;&#x7684;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-别名alias-简化复杂命令"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">9. &#x522B;&#x540D;&#xFF1A;alias &#x7B80;&#x5316;&#x590D;&#x6742;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-环境变量"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">10. &#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ls系列-显示当前文件夹下-文件的名称"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ls&#x7CFB;&#x5217; &#x663E;&#x793A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x4E0B; &#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-权限-用户-用户组-时间-大小-ll"><span class="toc-nav-number">1.0.0.1.</span> <span class="toc-nav-text">ls -l &#x6743;&#x9650; &#x7528;&#x6237; &#x7528;&#x6237;&#x7EC4; &#x65F6;&#x95F4; &#x5927;&#x5C0F; == ll</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-a-显示隐藏文件-ls-la"><span class="toc-nav-number">1.0.0.2.</span> <span class="toc-nav-text">ls -l -a &#x663E;&#x793A;&#x9690;&#x85CF;&#x6587;&#x4EF6;                   == ls -la</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-h-仅仅查看文件的大小-ls-lh"><span class="toc-nav-number">1.0.0.3.</span> <span class="toc-nav-text">ls -l -h  &#x4EC5;&#x4EC5;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;      == ls -lh</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-r-t-按时间排序-顺序-ls-lrt"><span class="toc-nav-number">1.0.0.4.</span> <span class="toc-nav-text">ls -l -r -t &#x6309;&#x65F6;&#x95F4;&#x6392;&#x5E8F; &#x987A;&#x5E8F;           == ls -lrt</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#ls-l-t-按时间排序-倒序-ls-lt"><span class="toc-nav-number">1.0.0.5.</span> <span class="toc-nav-text">ls -l -t &#x6309;&#x65F6;&#x95F4;&#x6392;&#x5E8F; &#x5012;&#x5E8F;               == ls -lt</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cd-系列-跳转到某一路径"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">cd &#x7CFB;&#x5217; &#x8DF3;&#x8F6C;&#x5230;&#x67D0;&#x4E00;&#x8DEF;&#x5F84;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#tab"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">tab</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#clear-清理屏幕"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">clear &#x6E05;&#x7406;&#x5C4F;&#x5E55;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#必会-help-帮助命令"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">[&#x5FC5;&#x4F1A;] --help &#x5E2E;&#x52A9;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建文件-文件夹"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x3001;&#x6587;&#x4EF6;&#x5939;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建文件"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">&#x521B;&#x5EFA;&#x6587;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建文件夹"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mv-ampamp-cp"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">mv &amp;&amp; cp</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看文件内容"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#历史记录-history"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x5386;&#x53F2;&#x8BB0;&#x5F55; history</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装上传下载的"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;&#x7684;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#别名alias-简化复杂命令"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">&#x522B;&#x540D;&#xFF1A;alias &#x7B80;&#x5316;&#x590D;&#x6742;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#环境变量"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li></ol>
         
         </div>
       </aside>
