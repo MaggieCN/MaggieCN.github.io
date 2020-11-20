@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          JDK-MySQL 安装部署 - MaggieCN | Blog
+          JDK安装部署 - MaggieCN | Blog
         
     </title>
 
@@ -93,7 +93,7 @@
                               <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
                             
                         </div>
-                        <h1>JDK-MySQL 安装部署</h1>
+                        <h1>JDK安装部署</h1>
                         <h2 class="subheading">jdk踩坑-mysql开机自动启动-dbeaver</h2>
                         <span class="meta">
                             Posted by Maggie on
@@ -144,7 +144,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -158,7 +158,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -215,8 +215,7 @@
                 post-container">
 
                 <h4 id="安装jdk-重点修改组-用户组">安装jdk （ 重点修改组、用户组）</h4>
-<h5 id="安装">安装</h5>
-<h6 id="第一步上传jdk文件从windows到linux">第一步：上传jdk文件从windows到linux</h6>
+<h4 id="第一步上传jdk文件从windows到linux">第一步：上传jdk文件从windows到linux</h4>
 <ul>
 <li>上传命令：rz</li>
 </ul>
@@ -230,12 +229,12 @@
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll</span><br></pre></td></tr></table></figure>
-<h6 id="第二步创建java文件夹在usr路径下">第二步：创建java文件夹，在/usr/路径下</h6>
+<h4 id="第二步创建java文件夹在usr路径下">第二步：创建java文件夹，在/usr/路径下</h4>
 <ul>
 <li>命令：mkdir -p /usr/java/</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/java/</span><br></pre></td></tr></table></figure>
-<h6 id="第三步解压缩tar包到指定目录">第三步：解压缩tar包到指定目录</h6>
+<h4 id="第三步解压缩tar包到指定目录">第三步：解压缩tar包到指定目录</h4>
 <ul>
 <li>命令：tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</li>
 </ul>
@@ -243,14 +242,14 @@
 <ul>
 <li><u>在按到jdk的时候可以按一下tab键自动补全【新手请记住】</u></li>
 </ul>
-<h6 id="第四步-cd-到java路径下查看">第四步： cd 到java路径下查看</h6>
+<h4 id="第四步-cd-到java路径下查看">第四步： cd 到java路径下查看</h4>
 <ul>
 <li>命令1： cd /usr/java</li>
 <li>命令2：ll</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/java </span><br><span class="line">ll</span><br></pre></td></tr></table></figure>
 <p>​	可以看到已经产生了一个jdk-8u181的文件夹</p>
-<h6 id="第五步更改用户用户组">第五步：更改用户，用户组</h6>
+<h4 id="第五步更改用户用户组">第五步：更改用户，用户组</h4>
 <ul>
 <li>命令： chown -R root:root  jdk1.8.0_181</li>
 </ul>
@@ -274,7 +273,7 @@
 </li>
 </ul>
 <p><u>更改后的： drwxr-xr-x 7 root root 4096 Jul  7  2018 jdk1.8.0_181</u></p>
-<h6 id="第六步-配置环境变量">第六步： 配置环境变量</h6>
+<h4 id="第六步-配置环境变量">第六步： 配置环境变量</h4>
 <p>jdk是一个全局的环境变量</p>
 <ul>
 <li>
@@ -296,14 +295,14 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
 <p>esc 键 再按 :wq 保存退出</p>
 </li>
 </ul>
-<h6 id="第七步环境变量生效">第七步环境变量生效</h6>
+<h4 id="第七步环境变量生效">第七步环境变量生效</h4>
 <ul>
 <li>
 <p>命令：source  /etc/profile</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source  /etc/profile</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h6 id="第八步-检查是否生效">第八步 检查是否生效</h6>
+<h4 id="第八步-检查是否生效">第八步 检查是否生效</h4>
 <ul>
 <li>
 <p>检查是否生效命令：java -version</p>
@@ -316,38 +315,6 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
 </ul>
 <p>所有命令汇总：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">mkdir -p /usr/java/</span><br><span class="line"></span><br><span class="line">tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</span><br><span class="line"></span><br><span class="line">cd /usr/java </span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">chown -R root:root  jdk1.8.0_181</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">G 键</span><br><span class="line"></span><br><span class="line">i 键</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>Maggie java env</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">esc键</span><br><span class="line"></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line">source  /etc/profile</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">which java</span><br></pre></td></tr></table></figure>
-<h4 id="安装mysql">安装mysql</h4>
-<h4 id="安装dbeaver">安装dbeaver</h4>
-<p><a href="https://blog.csdn.net/qq_24073707/article/details/80297572?ops_request_misc=%7B%22request%5Fid%22%3A%22160536169619724835853941%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=160536169619724835853941&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-80297572.pc_v2_rank_blog_default&amp;utm_term=dbeaver&amp;spm=1018.2118.3001.4450" target="_blank" rel="noopener">【若泽大数据实战第六天】大数据平台DB监控软件 dbeaver安装+jdk1.8_强悍de巨人-CSDN博客</a></p>
-<h5 id="第一步下载jdk-windows-版本">第一步：下载jdk windows 版本</h5>
-<p><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">Jdk下载页面</a></p>
-<ul>
-<li>
-<p>不想下载目前最高版本可以拉到页面最下端， 点击java archive 即可找到历史版本</p>
-</li>
-<li>
-<h4 id="java-archive">Java Archive</h4>
-<p>The <a href="https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html" target="_blank" rel="noopener">Java Archive </a>offers access to some of our historical Java releases. <strong>WARNING:</strong> These older versions of the JRE and JDK are provided to help developers debug issues in older systems. <strong>They are not updated with the latest security patches and are not recommended for use in production.</strong></p>
-</li>
-</ul>
-<h6 id="安装jdk">安装jdk</h6>
-<h6 id="配置环境变量">配置环境变量</h6>
-<ol>
-<li>我的电脑-右键-属性-环境变量</li>
-<li>点击下方的系统环境变量-新建</li>
-<li>配置JAVA_HOME。新建，变量名JAVA_HOME，变量值，jdk路径，我的路径是D:\jdk1.8.0_202，保存。</li>
-<li>配置CLASSPATH。新建，变量名CLASSPATH，变量值，.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（第一个分号前前面有一个点）</li>
-<li>配置Path。打开Path变量，在变量值最前加入%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</li>
-</ol>
-<h5 id="第二步下载dbeaver">第二步：下载dbeaver</h5>
-<p>jump to the next query  alt down</p>
-<p>select query ctrl enter</p>
-<p>format sql statement ctrl shift F</p>
-<p>run current sql alt x</p>
-<p>refresh F5</p>
-<p>filter table ctrl F11</p>
-<p>ctrl atl + .</p>
-<p>ALTER USER ‘root’@‘localhost’ IDENTIFIED BY ‘Gm8564341’;</p>
 
                 
 
@@ -356,12 +323,12 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Linux 查看大小/" data-toggle="tooltip" data-placement="top" title="Linux 查看大小">&larr; Previous Post</a>
+                            <a href="/article/Linux 查看大小/" data-toggle="tooltip" data-placement="top" title="Linux 第四次课">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/Linux 高危命令/" data-toggle="tooltip" data-placement="top" title="Linux 高危命令-更新中ing">Next Post &rarr;</a>
+                            <a href="/article/Linux 基础命令/" data-toggle="tooltip" data-placement="top" title="Linux 基础命令">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -411,7 +378,7 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装jdk-重点修改组-用户组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk &#xFF08; &#x91CD;&#x70B9;&#x4FEE;&#x6539;&#x7EC4;&#x3001;&#x7528;&#x6237;&#x7EC4;&#xFF09;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第一步上传jdk文件从windows到linux"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0A;&#x4F20;jdk&#x6587;&#x4EF6;&#x4ECE;windows&#x5230;linux</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第二步创建java文件夹在usr路径下"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;java&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;/usr/&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第三步解压缩tar包到指定目录"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x89E3;&#x538B;&#x7F29;tar&#x5305;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第四步-cd-到java路径下查看"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A; cd &#x5230;java&#x8DEF;&#x5F84;&#x4E0B;&#x67E5;&#x770B;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第五步更改用户用户组"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x66F4;&#x6539;&#x7528;&#x6237;&#xFF0C;&#x7528;&#x6237;&#x7EC4;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第六步-配置环境变量"><span class="toc-nav-number">1.1.6.</span> <span class="toc-nav-text">&#x7B2C;&#x516D;&#x6B65;&#xFF1A; &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第七步环境变量生效"><span class="toc-nav-number">1.1.7.</span> <span class="toc-nav-text">&#x7B2C;&#x4E03;&#x6B65;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#第八步-检查是否生效"><span class="toc-nav-number">1.1.8.</span> <span class="toc-nav-text">&#x7B2C;&#x516B;&#x6B65; &#x68C0;&#x67E5;&#x662F;&#x5426;&#x751F;&#x6548;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装mysql"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;mysql</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装dbeaver"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;dbeaver</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#第一步下载jdk-windows-版本"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0B;&#x8F7D;jdk windows &#x7248;&#x672C;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#java-archive"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Java Archive</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#安装jdk"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#配置环境变量"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#第二步下载dbeaver"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4E0B;&#x8F7D;dbeaver</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装jdk-重点修改组-用户组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk &#xFF08; &#x91CD;&#x70B9;&#x4FEE;&#x6539;&#x7EC4;&#x3001;&#x7528;&#x6237;&#x7EC4;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第一步上传jdk文件从windows到linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0A;&#x4F20;jdk&#x6587;&#x4EF6;&#x4ECE;windows&#x5230;linux</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第二步创建java文件夹在usr路径下"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;java&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;/usr/&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第三步解压缩tar包到指定目录"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x89E3;&#x538B;&#x7F29;tar&#x5305;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第四步-cd-到java路径下查看"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A; cd &#x5230;java&#x8DEF;&#x5F84;&#x4E0B;&#x67E5;&#x770B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第五步更改用户用户组"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x66F4;&#x6539;&#x7528;&#x6237;&#xFF0C;&#x7528;&#x6237;&#x7EC4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第六步-配置环境变量"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x7B2C;&#x516D;&#x6B65;&#xFF1A; &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第七步环境变量生效"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x7B2C;&#x4E03;&#x6B65;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第八步-检查是否生效"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x7B2C;&#x516B;&#x6B65; &#x68C0;&#x67E5;&#x662F;&#x5426;&#x751F;&#x6548;</span></a></li></ol>
         
         </div>
       </aside>

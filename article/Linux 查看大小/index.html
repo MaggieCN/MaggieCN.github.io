@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Linux 查看大小 - MaggieCN | Blog
+          Linux 第四次课 - MaggieCN | Blog
         
     </title>
 
@@ -91,8 +91,8 @@
                               <a class="tag" href="/tags/#linux" title="linux">linux</a>
                             
                         </div>
-                        <h1>Linux 查看大小</h1>
-                        <h2 class="subheading">linux基础中的基础--必须掌握哦</h2>
+                        <h1>Linux 第四次课</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Maggie on
                             2020-11-15
@@ -142,7 +142,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -156,7 +156,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -212,7 +212,11 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="磁盘大小">磁盘大小</h3>
+                <h3 id="文件大小">文件大小</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll -h</span><br></pre></td></tr></table></figure>
+<h3 id="文件或文件夹大小">文件或文件夹大小</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh</span><br></pre></td></tr></table></figure>
+<h3 id="磁盘大小">磁盘大小</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
 <p>Filesystem      Size  Used Avail Use% Mounted on<br>
 devtmpfs        3.9G     0    3.9G   0%    /dev<br>
@@ -324,10 +328,10 @@ window/linux去检测服务是否ok: telnet ip port<br>
 </ul>
 <h3 id="问题ping-ip-通-端口号不通">问题：ping ip 通， 端口号不通</h3>
 <p>可以查看配置文件是否设置为本地</p>
-<p>[root@ruozedata001 ~]# netstat -nlp|grep http<br>
-tcp6       0      0 :::80				:::*                    LISTEN      3478/httpd<br>
+<p>[root@hadoop1 ~]# netstat -nlp|grep http<br>
+tcp6       0      0 :::80				          :::*                    LISTEN      3478/httpd<br>
 tcp6       0      0 0.0.0.0:80				:::*                    LISTEN      3478/httpd<br>
-tcp6       0      0 192.168.1.101:80			:::*                    LISTEN      3478/httpd</p>
+tcp6       0      0 192.168.1.101:80   :::*                    LISTEN      3478/httpd</p>
 <p>80端口号服务可以对外<br>
 window或者其他服务器 可以ip+80 进行访问的</p>
 <p>tcp6       0      0 localhost:80			:::*                    LISTEN      3478/httpd<br>
@@ -336,9 +340,30 @@ localhost 、127.0.0.1 代表本机<br>
 80端口仅限本机的其他服务可以访问，window或者其他服务器无法访问</p>
 <h3 id="crontab-定时">crontab 定时</h3>
 <ul>
-<li>crontab [options] file</li>
+<li>格式：</li>
 </ul>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -l    //列出所有的任务</span><br><span class="line">crontab -e    //编辑一个定时器的文件内容</span><br></pre></td></tr></table></figure>
+<p>*  *  *  *  *  command<br>
+M  H  D  m  d  command<br>
+分  时  日  月  周  命令</p>
+<ul>
+<li>
+<p>要注意是有空格的</p>
+</li>
+<li>
+<p>举例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab -e </span><br><span class="line">//按i键，进入编辑模式</span><br><span class="line">* * * * * sleep 10s; date &gt;&gt; /root/1.log //星代表每周每月每日每时每分（每分钟）输出时间到这个文件</span><br><span class="line">//按esc键， shift+:wq 退出保存</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>crontab [options] file</p>
+</li>
+</ul>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -l    //列出所有的任务</span><br><span class="line">crontab -e    //编辑一个定时器的文件内容</span><br><span class="line">crontab -r 	  //删除目前的时程表</span><br></pre></td></tr></table></figure>
+<p>【面试】每隔10s打印一次</p>
+<p>linux 定时的最小单位是分钟，所以必须要写脚本才可以</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vi test.sh</span><br><span class="line">//按i键，进入编辑模式</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">set -u</span><br><span class="line"></span><br><span class="line">for((i=1;i&lt;=6;i++));</span><br><span class="line">do</span><br><span class="line"></span><br><span class="line">        date</span><br><span class="line">        sleep 10s</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">exit 0</span><br><span class="line">//按esc键， shift+:wq 退出保存</span><br><span class="line">crontab -e</span><br><span class="line">* * * * * /root/ruoze.sh &gt;&gt; /root/1.log</span><br><span class="line">chmod +x ruoze.sh //给sh文件加上写的权限</span><br></pre></td></tr></table></figure>
+<h3 id="后台执行脚本">后台执行脚本</h3>
+<p>nohup …   &amp;</p>
+<p>nohup  /root/ruoze.sh &gt;&gt; /root/rz.log 2&gt;&amp;1 &amp;</p>
 
                 
 
@@ -346,13 +371,9 @@ localhost 、127.0.0.1 代表本机<br>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Untitled/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/安装jdk_mysql/" data-toggle="tooltip" data-placement="top" title="JDK-MySQL 安装部署">Next Post &rarr;</a>
+                            <a href="/article/安装jdk_mysql/" data-toggle="tooltip" data-placement="top" title="JDK安装部署">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -402,7 +423,7 @@ localhost 、127.0.0.1 代表本机<br>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#磁盘大小"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x78C1;&#x76D8;&#x5927;&#x5C0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#内存"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5185;&#x5B58;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#机器负载"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x673A;&#x5668;&#x8D1F;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装卸载搜索-yum-命令"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;/&#x5378;&#x8F7D;/&#x641C;&#x7D22; yum &#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#wget-下载"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">wget &#x4E0B;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rpm-查看所有套件管理套件"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">rpm &#x67E5;&#x770B;&#x6240;&#x6709;&#x5957;&#x4EF6;/&#x7BA1;&#x7406;&#x5957;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#压缩解压"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x538B;&#x7F29;&#x89E3;&#x538B;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看进程-ps-ef"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x67E5;&#x770B;&#x8FDB;&#x7A0B; ps -ef</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#端口号"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x7AEF;&#x53E3;&#x53F7;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#问题ping-ip-通-端口号不通"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">&#x95EE;&#x9898;&#xFF1A;ping ip &#x901A;&#xFF0C; &#x7AEF;&#x53E3;&#x53F7;&#x4E0D;&#x901A;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#crontab-定时"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">crontab &#x5B9A;&#x65F6;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文件大小"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6587;&#x4EF6;&#x5927;&#x5C0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文件或文件夹大小"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x6587;&#x4EF6;&#x6216;&#x6587;&#x4EF6;&#x5939;&#x5927;&#x5C0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#磁盘大小"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x78C1;&#x76D8;&#x5927;&#x5C0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#内存"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x5185;&#x5B58;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#机器负载"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x673A;&#x5668;&#x8D1F;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装卸载搜索-yum-命令"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;/&#x5378;&#x8F7D;/&#x641C;&#x7D22; yum &#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#wget-下载"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">wget &#x4E0B;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rpm-查看所有套件管理套件"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">rpm &#x67E5;&#x770B;&#x6240;&#x6709;&#x5957;&#x4EF6;/&#x7BA1;&#x7406;&#x5957;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#压缩解压"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x538B;&#x7F29;&#x89E3;&#x538B;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看进程-ps-ef"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">&#x67E5;&#x770B;&#x8FDB;&#x7A0B; ps -ef</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#端口号"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">&#x7AEF;&#x53E3;&#x53F7;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#问题ping-ip-通-端口号不通"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">&#x95EE;&#x9898;&#xFF1A;ping ip &#x901A;&#xFF0C; &#x7AEF;&#x53E3;&#x53F7;&#x4E0D;&#x901A;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#crontab-定时"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">crontab &#x5B9A;&#x65F6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#后台执行脚本"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">&#x540E;&#x53F0;&#x6267;&#x884C;&#x811A;&#x672C;</span></a></li></ol>
         
         </div>
       </aside>
