@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/article/安装jdk_mysql/">
+    <link rel="canonical" href="http://www.ruozedata.com/article/安装jdk/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -94,7 +94,7 @@
                             
                         </div>
                         <h1>JDK安装部署</h1>
-                        <h2 class="subheading">jdk踩坑-mysql开机自动启动-dbeaver</h2>
+                        <h2 class="subheading">jdk踩坑</h2>
                         <span class="meta">
                             Posted by Maggie on
                             2020-11-14
@@ -144,6 +144,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -152,13 +159,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -295,14 +295,14 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
 <p>esc 键 再按 :wq 保存退出</p>
 </li>
 </ul>
-<h4 id="第七步环境变量生效">第七步环境变量生效</h4>
+<h4 id="第七步-环境变量生效">第七步: 环境变量生效</h4>
 <ul>
 <li>
 <p>命令：source  /etc/profile</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source  /etc/profile</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="第八步-检查是否生效">第八步 检查是否生效</h4>
+<h4 id="第八步-检查是否生效">第八步: 检查是否生效</h4>
 <ul>
 <li>
 <p>检查是否生效命令：java -version</p>
@@ -378,7 +378,7 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装jdk-重点修改组-用户组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk &#xFF08; &#x91CD;&#x70B9;&#x4FEE;&#x6539;&#x7EC4;&#x3001;&#x7528;&#x6237;&#x7EC4;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第一步上传jdk文件从windows到linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0A;&#x4F20;jdk&#x6587;&#x4EF6;&#x4ECE;windows&#x5230;linux</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第二步创建java文件夹在usr路径下"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;java&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;/usr/&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第三步解压缩tar包到指定目录"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x89E3;&#x538B;&#x7F29;tar&#x5305;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第四步-cd-到java路径下查看"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A; cd &#x5230;java&#x8DEF;&#x5F84;&#x4E0B;&#x67E5;&#x770B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第五步更改用户用户组"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x66F4;&#x6539;&#x7528;&#x6237;&#xFF0C;&#x7528;&#x6237;&#x7EC4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第六步-配置环境变量"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x7B2C;&#x516D;&#x6B65;&#xFF1A; &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第七步环境变量生效"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x7B2C;&#x4E03;&#x6B65;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第八步-检查是否生效"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x7B2C;&#x516B;&#x6B65; &#x68C0;&#x67E5;&#x662F;&#x5426;&#x751F;&#x6548;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装jdk-重点修改组-用户组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk &#xFF08; &#x91CD;&#x70B9;&#x4FEE;&#x6539;&#x7EC4;&#x3001;&#x7528;&#x6237;&#x7EC4;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第一步上传jdk文件从windows到linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0A;&#x4F20;jdk&#x6587;&#x4EF6;&#x4ECE;windows&#x5230;linux</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第二步创建java文件夹在usr路径下"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;java&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;/usr/&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第三步解压缩tar包到指定目录"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x89E3;&#x538B;&#x7F29;tar&#x5305;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第四步-cd-到java路径下查看"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A; cd &#x5230;java&#x8DEF;&#x5F84;&#x4E0B;&#x67E5;&#x770B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第五步更改用户用户组"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x66F4;&#x6539;&#x7528;&#x6237;&#xFF0C;&#x7528;&#x6237;&#x7EC4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第六步-配置环境变量"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x7B2C;&#x516D;&#x6B65;&#xFF1A; &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第七步-环境变量生效"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x7B2C;&#x4E03;&#x6B65;: &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第八步-检查是否生效"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x7B2C;&#x516B;&#x6B65;: &#x68C0;&#x67E5;&#x662F;&#x5426;&#x751F;&#x6548;</span></a></li></ol>
         
         </div>
       </aside>
