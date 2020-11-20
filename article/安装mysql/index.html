@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/archives/">
+    <link rel="canonical" href="http://www.ruozedata.com/article/安装mysql/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/home.jpg')
-            /*page*/
+            background-image: url('/img/article_header/time.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>MaggieCN&#39;s Blog</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Maggie on
+                            2020-11-20
+                        </span>
                     </div>
                 
 
@@ -191,293 +197,211 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 archive">
-            <!-- 归档列表 -->
-            
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <h4 id="安装mysql">安装mysql</h4>
+<h4 id="步骤本文安装是57版本">步骤：本文安装是5.7版本</h4>
+<p><a href="https://www.bilibili.com/video/BV12b411N7Lv" target="_blank" rel="noopener">步骤参考视频-若泽讲解</a></p>
+<ol>
+<li>check 系统是否安装或运行Mysql</li>
+<li>download mysql 源码包和解压</li>
+<li>创建管理用户mysqladmin和用户组dba</li>
+<li>配置**/etc/my.cnf**</li>
+<li>对4的文件和源码文件夹赋权限（用户、用户组、RWX）</li>
+<li>配置Mysql服务和设置开机自动启动</li>
+<li>切换mysqladmin ，编译安装mysql</li>
+<li>启动mysql服务</li>
+<li>使用mysql命令登录</li>
+<li>配置环境变量</li>
+</ol>
+<h4 id="安装dbeaver">安装dbeaver</h4>
+<p>有各种类别的数据库，包括hive等，比navicat更强大</p>
+<p><a href="https://blog.csdn.net/qq_24073707/article/details/80297572?ops_request_misc=%7B%22request%5Fid%22%3A%22160536169619724835853941%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fblog.%22%7D&amp;request_id=160536169619724835853941&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-80297572.pc_v2_rank_blog_default&amp;utm_term=dbeaver&amp;spm=1018.2118.3001.4450" target="_blank" rel="noopener">【若泽大数据实战第六天】大数据平台DB监控软件 dbeaver安装+jdk1.8_强悍de巨人-CSDN博客</a></p>
+<h5 id="第一步下载jdk-windows-版本">第一步：下载jdk windows 版本</h5>
+<p><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">Jdk下载页面</a></p>
+<ul>
+<li>
+<p>不想下载目前最高版本可以拉到页面最下端， 点击java archive 即可找到历史版本</p>
+</li>
+<li>
+<h4 id="java-archive">Java Archive</h4>
+<p>The <a href="https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html" target="_blank" rel="noopener">Java Archive </a>offers access to some of our historical Java releases. <strong>WARNING:</strong> These older versions of the JRE and JDK are provided to help developers debug issues in older systems. <strong>They are not updated with the latest security patches and are not recommended for use in production.</strong></p>
+</li>
+</ul>
+<h6 id="安装jdk">安装jdk</h6>
+<h6 id="配置环境变量">配置环境变量</h6>
+<ol>
+<li>我的电脑-右键-属性-环境变量</li>
+<li>点击下方的系统环境变量-新建</li>
+<li>配置JAVA_HOME。新建，变量名JAVA_HOME，变量值，jdk路径，我的路径是D:\jdk1.8.0_202，保存。</li>
+<li>配置CLASSPATH。新建，变量名CLASSPATH，变量值，.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（第一个分号前前面有一个点）</li>
+<li>配置Path。打开Path变量，在变量值最前加入%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</li>
+</ol>
+<h5 id="第二步下载dbeaver">第二步：下载dbeaver</h5>
+<p>官网：<a href="https://dbeaver.jkiss.org/download/" target="_blank" rel="noopener">https://dbeaver.jkiss.org/download/</a></p>
+<p>创建dbeaver快捷方式的时候要指定jdk的路径，快捷方式上右键 -&gt;  属性 -&gt;  快捷方式 -&gt;  目标，编辑如下</p>
+<p>-vm D:\jdk1.8.0_202\bin\javaw.exe</p>
+<p>我是本地的MySQL</p>
+<p>mysql windows 安装</p>
+<p><a href="https://blog.csdn.net/qq_37350706/article/details/81707862#%E9%85%8D%E7%BD%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84my.ini%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">https://blog.csdn.net/qq_37350706/article/details/81707862#配置初始化的my.ini文件的文件</a></p>
+<p>用dbeaver测试连接我localhost的MySQL, 测试成功！</p>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-                    <span class="tag-text">2020</span>
-                </span>
-                <ul>
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-20
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/安装mysql/" style="color: #0085a1">
-                        <span>
-                            Untitled
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-15
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Linux 查看大小/" style="color: #0085a1">
-                        <span>
-                            Linux 第四次课
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-14
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/安装jdk/" style="color: #0085a1">
-                        <span>
-                            JDK安装部署
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Linux 错误命令合集/" style="color: #0085a1">
-                        <span>
-                            Linux 错误提示
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Linux 高危命令/" style="color: #0085a1">
-                        <span>
-                            Linux 高危命令-更新中ing
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Linux 基础命令/" style="color: #0085a1">
-                        <span>
-                            Linux 基础命令
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Linux 查看大小/" data-toggle="tooltip" data-placement="top" title="Linux 第四次课">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-<style type="text/css">
-
-   @media (min-width: 992px) {
-   .archive {
-       margin-left: 8.33333333%;
-       padding-right: 26.333333%;
-   }
-}
-</style>
-
-<style type="text/css">
-   @media (min-width: 1200px){
-   .archive {
-   margin-left: 16.66666667%;
-   padding-right: 16.666667%;
-   }
-}
-</style>
-
 
                 <br>
 
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
 
-                <!-- 如果开启评论功能 -->
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
+                    
+                </ul>
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#linux" title="linux" rel="5">linux</a>
-            
-        
-            
-            <a href="/tags/#mysql" title="mysql" rel="1">mysql</a>
-            
-        
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/avatar/maggie.jpg" />
-        
 
-        
-            <p>大数据小白-在学，请多指教</p>
-        
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
 
-            
 
-            
 
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/MaggieCN">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/安装mysql/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/Linux 查看大小/">Linux 第四次课</a>
-        </li>
-      
-        <li>
-          <a href="/article/安装jdk/">JDK安装部署</a>
-        </li>
-      
-        <li>
-          <a href="/article/Linux 基础命令/">Linux 基础命令</a>
-        </li>
-      
-        <li>
-          <a href="/article/Linux 高危命令/">Linux 高危命令-更新中ing</a>
-        </li>
-      
-    </ul>
-  </div>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'rz'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        <hr>
-    
-        <!-- Friends Blog -->
 
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
-    
-</ul>
-
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">6</span></li></ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->
