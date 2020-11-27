@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,66 +211,6 @@
 
 <div class="post-preview">
 
-    <a href="/article/安装jdk/">
-        <h2 class="post-title">
-            
-                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
-                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
-                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
-                <font color=#F4711F>置顶</font>
-                <!-- <font color=#F89E8C>置顶</font>  -->
-                <!-- <font color=#1CB7ED>置顶</font>  -->
-                                 
-            JDK安装部署
-        </h2>
-        <h3 class="post-subtitle">
-            jdk踩坑
-        </h3>
-        <div class="post-content-preview">
-            安装jdk （ 重点修改组、用户组）
-第一步：上传jdk文件从windows到linux
-
-上传命令：rz
-
-1rz
-
-
-目前jdk的这个tar包是在根目录下，可以查看一下
-
-
-查看命令: ll
-
-
-1ll
-第二步：创建java文件夹，在/usr/路径下
-
-命令：mkdir -p /usr/java/
-
-1mkdir -p /usr/java/
-第三步：解压缩tar包到指定目录
-
-命令：ta......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-11-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/article/安装mysql/">
         <h2 class="post-title">
             
@@ -281,7 +221,7 @@
                 <!-- <font color=#F89E8C>置顶</font>  -->
                 <!-- <font color=#1CB7ED>置顶</font>  -->
                                  
-            mysql安装-dbeaver安装
+            mysql安装
         </h2>
         <h3 class="post-subtitle">
             
@@ -311,6 +251,45 @@ download mysql 源码包和解压
               <a href="/tags/#linux" title="linux">linux</a>
             
               <a href="/tags/#mysql" title="mysql">mysql</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/hadoop01/">
+        <h2 class="post-title">
+                                 
+            hadoop01
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            大数据组成： 存储、计算、资源调度
+存储： hdfs hive hbase kudu
+计算：资源只涉及到Cpu 和内存 sql
+资源和计算作业的调度分配 yarn
+
+sql 语句基础一定要好（sql行转列，列转行）
+未来高级的scala/java/python(少)、spark、flink
+
+域名规则
+https://hadoop.apache.org
+https://hadoop.apac......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-24
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
             
         </div>
     
@@ -398,36 +377,84 @@ tmpf......
 
 <div class="post-preview">
 
-    <a href="/article/Linux 高危命令/">
+    <a href="/article/安装jdk/">
         <h2 class="post-title">
                                  
-            Linux 高危命令-更新中ing
+            JDK安装部署
+        </h2>
+        <h3 class="post-subtitle">
+            jdk踩坑
+        </h3>
+        <div class="post-content-preview">
+            安装jdk （ 重点修改组、用户组）
+第一步：上传jdk文件从windows到linux
+
+上传命令：rz
+
+1rz
+
+
+目前jdk的这个tar包是在根目录下，可以查看一下
+
+
+查看命令: ll
+
+
+1ll
+第二步：创建java文件夹，在/usr/路径下
+
+命令：mkdir -p /usr/java/
+
+1mkdir -p /usr/java/
+第三步：解压缩tar包到指定目录
+
+命令：ta......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#linux" title="linux">linux</a>
+            
+              <a href="/tags/#mysql" title="mysql">mysql</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Linux 基础命令/">
+        <h2 class="post-title">
+                                 
+            Linux 基础命令
         </h2>
         <h3 class="post-subtitle">
             linux基础中的基础--必须掌握哦
         </h3>
         <div class="post-content-preview">
-            随时更新中… updating
-在做删除、替换等操作的时候一定要先备份！！！
-rm
-1rm -rf /
-1rm --help
+            ls系列 显示当前文件夹下 文件的名称
 
 
-r, R remove directories and their contents recursive
+ls -l 权限 用户 用户组 时间 大小 == ll
 
 
-f force 强制
+ls -l -a 显示隐藏文件                   == ls -la
 
 
-&gt;
+ls -l -h  仅仅查看文件的大小      == ls -lh
 
-这个符号表示覆盖
-会将原文件内容全部覆盖
-一定要记得备份！
 
-kill -9 pid
-1ps -ef | grep ......
+ls -l -r -t 按时间排序 顺序           == ls -lrt
+
+
+ls -l -t 按时间排序 倒序 ......
         </div>
     </a>
     
@@ -484,31 +511,36 @@ readonly file  :wq|! 强制保存退出
 
 <div class="post-preview">
 
-    <a href="/article/Linux 基础命令/">
+    <a href="/article/Linux 高危命令/">
         <h2 class="post-title">
                                  
-            Linux 基础命令
+            Linux 高危命令-更新中ing
         </h2>
         <h3 class="post-subtitle">
             linux基础中的基础--必须掌握哦
         </h3>
         <div class="post-content-preview">
-            ls系列 显示当前文件夹下 文件的名称
+            随时更新中… updating
+在做删除、替换等操作的时候一定要先备份！！！
+rm
+1rm -rf /
+1rm --help
 
 
-ls -l 权限 用户 用户组 时间 大小 == ll
+r, R remove directories and their contents recursive
 
 
-ls -l -a 显示隐藏文件                   == ls -la
+f force 强制
 
 
-ls -l -h  仅仅查看文件的大小      == ls -lh
+&gt;
 
+这个符号表示覆盖
+会将原文件内容全部覆盖
+一定要记得备份！
 
-ls -l -r -t 按时间排序 顺序           == ls -lrt
-
-
-ls -l -t 按时间排序 倒序 ......
+kill -9 pid
+1ps -ef | grep ......
         </div>
     </a>
     
@@ -564,6 +596,10 @@ ls -l -t 按时间排序 倒序 ......
         
             
             <a href="/tags/#linux" title="linux" rel="7">linux</a>
+            
+        
+            
+            <a href="/tags/#hadoop" title="hadoop" rel="1">hadoop</a>
             
         
             
@@ -623,11 +659,15 @@ ls -l -t 按时间排序 倒序 ......
     <ul>
       
         <li>
+          <a href="/article/hadoop01/">hadoop01</a>
+        </li>
+      
+        <li>
           <a href="/article/安装dbeaver/">安装dbeaver</a>
         </li>
       
         <li>
-          <a href="/article/安装mysql/">mysql安装-dbeaver安装</a>
+          <a href="/article/安装mysql/">mysql安装</a>
         </li>
       
         <li>
@@ -636,10 +676,6 @@ ls -l -t 按时间排序 倒序 ......
       
         <li>
           <a href="/article/安装jdk/">JDK安装部署</a>
-        </li>
-      
-        <li>
-          <a href="/article/Linux 高危命令/">Linux 高危命令-更新中ing</a>
         </li>
       
     </ul>
@@ -662,7 +698,7 @@ ls -l -t 按时间排序 倒序 ......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
 
         <hr>
