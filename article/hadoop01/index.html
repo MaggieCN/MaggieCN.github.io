@@ -142,13 +142,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -157,6 +150,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -304,7 +304,7 @@ drwxr-xr-x 18 hadoop hadoop  4096 Jun  3  2019 src</p>
 </li>
 </ol>
 <h4 id="更改配置文件">更改配置文件</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 hadoop]# which java</span><br><span class="line">/usr/java/jdk1.8.0_181/bin/java</span><br><span class="line">[hadoop@hadoop001 hadoop]# vi /etc/hadoop/hadoop-env.sh</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 hadoop]# which java</span><br><span class="line">/usr/java/jdk1.8.0_181/bin/java</span><br><span class="line">[hadoop@hadoop001 hadoop]# vi /etc/hadoop/hadoop-env.sh</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">[hadoop@hadoop001 ~]$ vi .bashrc </span><br><span class="line">export HADOOP_HOME=/home/hadoop/app/hadoop</span><br><span class="line">export PATH=$&#123;HADOOP_HOME&#125;/bin:$&#123;HADOOP_HOME&#125;/sbin:$PATH</span><br><span class="line">[hadoop@hadoop001 ~]$ source .bashrc</span><br><span class="line">[hadoop@hadoop001 ~]$ which hadoop</span><br><span class="line">~/app/hadoop/bin/hadoop</span><br></pre></td></tr></table></figure>
 <h4 id="配置hadoop用户的ssh信任关系">配置hadoop用户的ssh信任关系</h4>
 <p>exit 切回root用户，配置hadoop用户的ssh信任关系</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"><span class="meta">#</span> 内网IP  机器名称</span><br><span class="line">192.168.0.183   hadoop001 # 第一行第二行不能删除</span><br></pre></td></tr></table></figure>
@@ -322,28 +322,10 @@ The key fingerprint is:…</p>
 <p><strong>验证ssh,第一次必须输入yes建立关系，无需输入密码即可打印日期</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 ~]$ cd .ssh</span><br><span class="line">[hadoop@hadoop001 .ssh]$ ll</span><br><span class="line">-rw------- 1 hadoop hadoop 1675 Nov 21 21:20 id_rsa</span><br><span class="line">-rw-r--r-- 1 hadoop hadoop  401 Nov 21 21:20 id_rsa.pub</span><br><span class="line">[hadoop@hadoop001 .ssh]$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">[hadoop@hadoop001 .ssh]$ chmod 0600 ~/.ssh/authorized_keys  </span><br><span class="line">[hadoop@hadoop001 .ssh]$ ssh hadoop@hadoop001 date # 第一次要yes</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">[hadoop@hadoop001 .ssh]$ ssh hadoop@hadoop001 date # 第二次就不需要</span><br><span class="line">Sat Nov 21 21:21:39 CST 2020</span><br></pre></td></tr></table></figure>
 <h4 id="配置namenode进程以ruozedata001启动">配置namenode进程以ruozedata001启动</h4>
-<p><strong>修改core-site.xml文件</strong><br>
-<configuration><br>
-<property><br>
-<name>fs.defaultFS</name><br>
-<value>hdfs://hadoop001:9000</value><br>
-</property><br>
-</configuration></p>
+<p><strong>修改core-site.xml文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://hadoop001:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>修改hdfs-site.xml 文件</strong></p>
-<configuration>
-    <property>
-        <name>dfs.replication</name>
-        <value>1</value>
-    </property>
-   <property>
-        <name>dfs.namenode.secondary.http-address</name>
-        <value>hadoop001:50090</value>
-    </property>
-   <property>
-        <name>dfs.namenode.secondary.https-address</name>
-        <value>hadoop001:50091</value>
-    </property>
-</configuration>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">   &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hadoop001:50090&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">   &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.secondary.https-address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hadoop001:50091&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="配置datanode进程以hadoop001启动">配置datanode进程以hadoop001启动</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 hadoop]$ vi slaves </span><br><span class="line">hadoop001</span><br></pre></td></tr></table></figure>
 <h4 id="格式化">格式化</h4>
@@ -365,11 +347,8 @@ The key fingerprint is:…</p>
 <p>因为/tmp目录  30天 不访问的文件文件夹会被按照规则删除<br>
 所以生产上不要把内容丢在/tmp目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 tmp]$ mv /tmp/hadoop-hadoop/* /home/hadoop/tmp/</span><br><span class="line">[hadoop@hadoop001 tmp]$ ll /home/hadoop/tmp/</span><br><span class="line">total 0</span><br><span class="line">drwxrwxr-x 5 hadoop hadoop 48 Nov 21 21:30 dfs</span><br><span class="line">drwxrwxr-x 4 hadoop hadoop 32 Nov 21 21:56 mapred</span><br></pre></td></tr></table></figure>
-<p>在core-site.xml文件中新增<br>
-<property><br>
-<name>hadoop.tmp.dir</name><br>
-<value>/home/hadoop/tmp</value><br>
-</property></p>
+<p>在core-site.xml文件中新增</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
 <p>重启dfs<br>
