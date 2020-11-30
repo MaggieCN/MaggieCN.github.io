@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/archives/2/">
+    <link rel="canonical" href="http://www.ruozedata.com/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,31 +211,24 @@
 
 <div class="post-preview">
 
-    <a href="/article/Linux 基础命令/">
+    <a href="/article/Linux 错误命令合集/">
         <h2 class="post-title">
                                  
-            Linux 基础命令
+            Linux 错误提示
         </h2>
         <h3 class="post-subtitle">
-            linux基础中的基础--必须掌握哦
+            linux常见错误提示/原因
         </h3>
         <div class="post-content-preview">
-            ls系列 显示当前文件夹下 文件的名称
-
-
-ls -l 权限 用户 用户组 时间 大小 == ll
-
-
-ls -l -a 显示隐藏文件                   == ls -la
-
-
-ls -l -h  仅仅查看文件的大小      == ls -lh
-
-
-ls -l -r -t 按时间排序 顺序           == ls -lrt
-
-
-ls -l -t 按时间排序 倒序 ......
+            command not found
+原因：没有安装或者没有配置环境变量
+permission defied
+原因：没有权限，检查权限（用户、用户组）
+配置xx用户是有sudo 权限的
+vi /etc/sudoers
+xx ALL=(root) NOPASSED:ALL
+readonly file  :wq|! 强制保存退出
+生产场景：用户的权限不满足需求，需要更高的，假如IT 和公司管理制度......
         </div>
     </a>
     
@@ -302,6 +295,51 @@ kill -9 pid
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/article/python_数据爬虫/">
+        <h2 class="post-title">
+                                 
+            Python 数据爬虫
+        </h2>
+        <h3 class="post-subtitle">
+            基础内容
+        </h3>
+        <div class="post-content-preview">
+            数据解析
+
+json-jsonpath
+1`pip install jsonpath`
+jupyter 里面 ! pip install jsonpath
+请求方式
+前两种最常用
+
+get：默认的http请求方式，直接输入网址的方式去访问页面
+post：向web服务器提交表单数据
+put
+delete
+
+安装requests
+jupyter:
+1! pip install requests
+......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-19
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#python" title="python">python</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -343,15 +381,11 @@ kill -9 pid
     <div class="tags">
         
             
-            <a href="/tags/#linux" title="linux" rel="6">linux</a>
+            <a href="/tags/#linux" title="linux" rel="7">linux</a>
             
         
             
             <a href="/tags/#dbeaver" title="dbeaver" rel="2">dbeaver</a>
-            
-        
-            
-            <a href="/tags/#python" title="python" rel="1">python</a>
             
         
             
@@ -360,6 +394,10 @@ kill -9 pid
         
             
             <a href="/tags/#mysql" title="mysql" rel="3">mysql</a>
+            
+        
+            
+            <a href="/tags/#python" title="python" rel="1">python</a>
             
         
     </div>
@@ -454,7 +492,7 @@ kill -9 pid
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">13</span></li></ul>
     </div>
 
         <hr>
