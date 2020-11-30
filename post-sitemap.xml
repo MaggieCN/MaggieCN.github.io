@@ -7,16 +7,40 @@
     </url>
 
     <url>
-        <loc>http://www.ruozedata.com/article/%E5%AE%89%E8%A3%85dbeaver/</loc>
-        <lastmod>2020-11-30T13:16:14.627Z</lastmod>
+        <loc>http://www.ruozedata.com/article/dbeaver-%E4%BD%BF%E7%94%A8/</loc>
+        <lastmod>2020-11-30T13:22:57.037Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://www.ruozedata.com/article/dbeaver-%E4%BD%BF%E7%94%A8/</loc>
-        <lastmod>2020-11-30T13:16:04.036Z</lastmod>
+        <loc>http://www.ruozedata.com/article/python_%E6%95%B0%E6%8D%AE%E7%88%AC%E8%99%AB/</loc>
+        <lastmod>2020-11-30T13:22:32.336Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ruozedata.com/article/mysql_join%E8%AF%AD%E5%8F%A5/</loc>
+        <lastmod>2020-11-30T13:22:08.599Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ruozedata.com/article/%E6%95%B0%E4%BB%93%E7%AE%80%E5%8D%95%E7%9F%A5%E8%AF%86/</loc>
+        <lastmod>2020-11-30T13:21:50.539Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ruozedata.com/article/%E5%AE%89%E8%A3%85dbeaver/</loc>
+        <lastmod>2020-11-30T13:16:14.627Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

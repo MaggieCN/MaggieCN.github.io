@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Linux 错误提示 - MaggieCN | Blog
+          MaggieCN | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/article/Linux 错误命令合集/">
+    <link rel="canonical" href="http://www.ruozedata.com/archives/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/time.jpg')
-            /*post*/
+            background-image: url('/img/header_img/time.jpg') 
+            /*config*/
         
     }
     
@@ -85,18 +85,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/tags/#linux" title="linux">linux</a>
-                            
-                        </div>
-                        <h1>Linux 错误提示</h1>
-                        <h2 class="subheading">linux常见错误提示/原因</h2>
-                        <span class="meta">
-                            Posted by Maggie on
-                            2020-11-09
-                        </span>
+                    <div class="site-heading">
+                        <h1>MaggieCN&#39;s Blog</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading"></span>
                     </div>
                 
 
@@ -199,207 +191,279 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
 
-                <h3 id="command-not-found">command not found</h3>
-<p>原因：没有安装或者没有配置环境变量</p>
-<h3 id="permission-defied">permission defied</h3>
-<p>原因：没有权限，检查权限（用户、用户组）</p>
-<p><strong>配置xx用户是有sudo 权限的</strong></p>
-<p>vi /etc/sudoers</p>
-<p>xx ALL=(root) NOPASSED:ALL</p>
-<p>readonly file  :wq|! 强制保存退出</p>
-<p>生产场景：用户的权限不满足需求，需要更高的，假如IT 和公司管理制度都还好，就要求加sudo权限。否则碰见这种权限错误的操作，只能让对应的IT人员操作。</p>
-<h3 id="样式丢失">样式丢失</h3>
-<p>[root@hadoop001 ~]# su - xx</p>
-<p>-bash-4.2$</p>
-<p>[root@hadoop001 ~]# rm -f /home/xx/.bash*</p>
-<p>[root@hadoop001 ~]# su - xx</p>
-<p>-bash-4.2$ cp /etc/skel/.* /home/xx/</p>
-<h3 id="connection-refused">connection refused</h3>
-<p>[root@ruozedata001 ~]# telnet 114.67.101.143 221<br>
-Trying 114.67.101.143…   Connection refused   【错误3】</p>
-<p>window电脑去访问 服务器的服务<br>
-	先 ping ip<br>
-	再 telnet ip port<br>
-linux机器去访问  服务器的服务<br>
-	先 ping ip<br>
-	再 telnet ip port</p>
 
-                
+<div class="post-preview">
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/article/安装jdk/" data-toggle="tooltip" data-placement="top" title="JDK安装部署">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/article/Linux 基础命令/" data-toggle="tooltip" data-placement="top" title="Linux 基础命令">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
+    <a href="/article/Linux 基础命令/">
+        <h2 class="post-title">
+                                 
+            Linux 基础命令
+        </h2>
+        <h3 class="post-subtitle">
+            linux基础中的基础--必须掌握哦
+        </h3>
+        <div class="post-content-preview">
+            ls系列 显示当前文件夹下 文件的名称
+
+
+ls -l 权限 用户 用户组 时间 大小 == ll
+
+
+ls -l -a 显示隐藏文件                   == ls -la
+
+
+ls -l -h  仅仅查看文件的大小      == ls -lh
+
+
+ls -l -r -t 按时间排序 顺序           == ls -lrt
+
+
+ls -l -t 按时间排序 倒序 ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#linux" title="linux">linux</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Linux 高危命令/">
+        <h2 class="post-title">
+                                 
+            Linux 高危命令-更新中ing
+        </h2>
+        <h3 class="post-subtitle">
+            linux基础中的基础--必须掌握哦
+        </h3>
+        <div class="post-content-preview">
+            随时更新中… updating
+在做删除、替换等操作的时候一定要先备份！！！
+rm
+1rm -rf /
+1rm --help
+
+
+r, R remove directories and their contents recursive
+
+
+f force 强制
+
+
+&gt;
+
+这个符号表示覆盖
+会将原文件内容全部覆盖
+一定要记得备份！
+
+kill -9 pid
+1ps -ef | grep ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#linux" title="linux">linux</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+        <li class="previous">
+            <a href="/">&larr; Newer Posts</a>
+        </li>
+    
+    
+</ul>
+
+
 
                 <br>
 
-                <!--打赏-->
-                
-                <!--打赏-->
-
-                <br>
-                <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-                
-                <!--分享-->
-                <br>                       
-                
                 <!-- require APlayer -->
                 
 
-                <!-- duoshuo Share start -->
+                <!-- 如果开启评论功能 -->
                 
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
-
-                
-
             </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-  
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+            <a href="/tags/#linux" title="linux" rel="6">linux</a>
+            
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#command-not-found"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">command not found</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#permission-defied"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">permission defied</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#样式丢失"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x6837;&#x5F0F;&#x4E22;&#x5931;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#connection-refused"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">connection refused</span></a></li></ol>
+            
+            <a href="/tags/#dbeaver" title="dbeaver" rel="2">dbeaver</a>
+            
         
-        </div>
-      </aside>
-    
-
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#linux" title="linux">linux</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
-                    
-                </ul>
-                
-            </div>
-        </div>
+            
+            <a href="/tags/#python" title="python" rel="1">python</a>
+            
+        
+            
+            <a href="/tags/#hadoop" title="hadoop" rel="2">hadoop</a>
+            
+        
+            
+            <a href="/tags/#mysql" title="mysql" rel="3">mysql</a>
+            
+        
     </div>
-</article>
+</section>
 
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
 
+        
+            <img id = "avatar_pic" src="/img/avatar/maggie.jpg" />
+        
 
+        
+            <p>大数据小白-在学，请多指教</p>
+        
 
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+            
 
+            
 
+            
 
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/MaggieCN">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul>
+    </div>
+</section>
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'rz'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/article/数仓简单知识/">数仓简单知识</a>
+        </li>
+      
+        <li>
+          <a href="/article/dbeaver-使用/">dbeaver 使用</a>
+        </li>
+      
+        <li>
+          <a href="/article/mysql_join语句/">Mysql基础语法</a>
+        </li>
+      
+        <li>
+          <a href="/article/hadoop01/">hadoop01</a>
+        </li>
+      
+        <li>
+          <a href="/article/安装dbeaver/">安装dbeaver</a>
+        </li>
+      
+    </ul>
+  </div>
 
+        <hr>
+    
+        <!-- Friends Blog -->
 
-<!-- chrome Firefox 中文锚点定位失效-->
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-<!-- smooth scroll behavior polyfill  -->
-<script type="text/javascript" src="/js/smoothscroll.js"></script>
-<script>
-        $('#toc').on('click','a',function(a){
-            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
-            // console.log(window.navigator.userAgent,isChrome)
-                // if(isChrome) {
-                    // console.log(a.currentTarget.outerHTML);
-                    // console.log($(a.currentTarget).attr("href"));
-                    //跳转到指定锚点
-                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
-                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
-                // }
-        })  
-</script>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
+    
+</ul>
+
+        <hr>
+    
+        
+    <h5>ARCHIVES</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">12</span></li></ul>
+    </div>
+
+        <hr>
+    
+</div>
+
+        
+    </div>
+</div>
 
 
     <!-- Footer -->

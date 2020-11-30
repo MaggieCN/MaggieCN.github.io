@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,46 +211,32 @@
 
 <div class="post-preview">
 
-    <a href="/article/安装mysql/">
+    <a href="/article/数仓简单知识/">
         <h2 class="post-title">
-            
-                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
-                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
-                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
-                <font color=#F4711F>置顶</font>
-                <!-- <font color=#F89E8C>置顶</font>  -->
-                <!-- <font color=#1CB7ED>置顶</font>  -->
                                  
-            mysql安装
+            数仓简单知识
         </h2>
         <h3 class="post-subtitle">
-            
+            数仓（离线/实时）&& 数据迁移
         </h3>
         <div class="post-content-preview">
-            安装mysql
-步骤：本文安装是5.7版本
-步骤参考视频-若泽讲解
-安装步骤面试时要按下面大概说出来
-
-check 系统是否安装或运行Mysql
-download mysql 源码包和解压
-创建管理用户mysqladmin和用户组dba
-配置**/etc/my.cnf**
-对4的文件和源码文件夹赋权限（用户、用户组、RWX）
-配置Mysql服务和设置开机自动启动
-切换mysqladmin ，......
+            数据仓库的根本：数据质量，保证数据不丢，哪怕丢了 能够检测  补齐  重跑计算
+离线数仓：
+	数据源同步 Oracle/MySQL–&gt;SQOOP/datax/kettle–&gt;Hive
+	ETL加工    Hive sql、Spark sql(hive)、Spark Code
+实时数仓:
+	数据源同步 Oracle–&gt;OGG     --&gt;Kafka
+					    ......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-16
+            2020-11-30
         </p>
         <div class="tags">
             
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
+              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
             
         </div>
     
@@ -285,6 +271,48 @@ download mysql 源码包和解压
         <div class="tags">
             
               <a href="/tags/#dbeaver" title="dbeaver">dbeaver</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/mysql_join语句/">
+        <h2 class="post-title">
+                                 
+            Mysql基础语法
+        </h2>
+        <h3 class="post-subtitle">
+            mysql基础知识-sql语句-join语句相关
+        </h3>
+        <div class="post-content-preview">
+            mysql 基础
+数值类型
+int  整数
+long 长整型
+float    单精度
+double   双精度
+decimal  钱
+字符串
+char 字节       定长0-255长度    jepsonxxxxxx 自动补齐
+varchar 字符串   变长0-65535字节  jepson
+日期
+date 日期 YYYY-MM-DD
+time 时间 HH:MM:SS
+datetim......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-25
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#mysql" title="mysql">mysql</a>
             
         </div>
     
@@ -364,6 +392,100 @@ The Java Ar......
         <div class="tags">
             
               <a href="/tags/#dbeaver" title="dbeaver">dbeaver</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/python_数据爬虫/">
+        <h2 class="post-title">
+                                 
+            Python 数据爬虫
+        </h2>
+        <h3 class="post-subtitle">
+            基础内容
+        </h3>
+        <div class="post-content-preview">
+            数据解析
+
+json-jsonpath
+1`pip install jsonpath`
+jupyter 里面 ! pip install jsonpath
+请求方式
+前两种最常用
+
+get：默认的http请求方式，直接输入网址的方式去访问页面
+post：向web服务器提交表单数据
+put
+delete
+
+安装requests
+jupyter:
+1! pip install requests
+......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-19
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#python" title="python">python</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/安装mysql/">
+        <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
+                                 
+            mysql安装
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            安装mysql
+步骤：本文安装是5.7版本
+步骤参考视频-若泽讲解
+安装步骤面试时要按下面大概说出来
+
+check 系统是否安装或运行Mysql
+download mysql 源码包和解压
+创建管理用户mysqladmin和用户组dba
+配置**/etc/my.cnf**
+对4的文件和源码文件夹赋权限（用户、用户组、RWX）
+配置Mysql服务和设置开机自动启动
+切换mysqladmin ，......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#linux" title="linux">linux</a>
+            
+              <a href="/tags/#mysql" title="mysql">mysql</a>
             
         </div>
     
@@ -464,50 +586,6 @@ tmpf......
 
 <div class="post-preview">
 
-    <a href="/article/Linux 基础命令/">
-        <h2 class="post-title">
-                                 
-            Linux 基础命令
-        </h2>
-        <h3 class="post-subtitle">
-            linux基础中的基础--必须掌握哦
-        </h3>
-        <div class="post-content-preview">
-            ls系列 显示当前文件夹下 文件的名称
-
-
-ls -l 权限 用户 用户组 时间 大小 == ll
-
-
-ls -l -a 显示隐藏文件                   == ls -la
-
-
-ls -l -h  仅仅查看文件的大小      == ls -lh
-
-
-ls -l -r -t 按时间排序 顺序           == ls -lrt
-
-
-ls -l -t 按时间排序 倒序 ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-11-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/article/Linux 错误命令合集/">
         <h2 class="post-title">
                                  
@@ -543,61 +621,16 @@ readonly file  :wq|! 强制保存退出
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/article/Linux 高危命令/">
-        <h2 class="post-title">
-                                 
-            Linux 高危命令-更新中ing
-        </h2>
-        <h3 class="post-subtitle">
-            linux基础中的基础--必须掌握哦
-        </h3>
-        <div class="post-content-preview">
-            随时更新中… updating
-在做删除、替换等操作的时候一定要先备份！！！
-rm
-1rm -rf /
-1rm --help
-
-
-r, R remove directories and their contents recursive
-
-
-f force 强制
-
-
-&gt;
-
-这个符号表示覆盖
-会将原文件内容全部覆盖
-一定要记得备份！
-
-kill -9 pid
-1ps -ef | grep ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-11-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
 
 <ul class="pager">
     
+    
+        <li class="next">
+            <a href="/archives/2/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -637,11 +670,15 @@ kill -9 pid
             
         
             
-            <a href="/tags/#hadoop" title="hadoop" rel="1">hadoop</a>
+            <a href="/tags/#python" title="python" rel="1">python</a>
             
         
             
-            <a href="/tags/#mysql" title="mysql" rel="2">mysql</a>
+            <a href="/tags/#hadoop" title="hadoop" rel="2">hadoop</a>
+            
+        
+            
+            <a href="/tags/#mysql" title="mysql" rel="3">mysql</a>
             
         
     </div>
@@ -697,7 +734,15 @@ kill -9 pid
     <ul>
       
         <li>
+          <a href="/article/数仓简单知识/">数仓简单知识</a>
+        </li>
+      
+        <li>
           <a href="/article/dbeaver-使用/">dbeaver 使用</a>
+        </li>
+      
+        <li>
+          <a href="/article/mysql_join语句/">Mysql基础语法</a>
         </li>
       
         <li>
@@ -706,14 +751,6 @@ kill -9 pid
       
         <li>
           <a href="/article/安装dbeaver/">安装dbeaver</a>
-        </li>
-      
-        <li>
-          <a href="/article/安装mysql/">mysql安装</a>
-        </li>
-      
-        <li>
-          <a href="/article/Linux 查看大小/">Linux 第四次课</a>
         </li>
       
     </ul>
@@ -736,7 +773,7 @@ kill -9 pid
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">12</span></li></ul>
     </div>
 
         <hr>

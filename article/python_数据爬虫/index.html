@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          JDK安装部署 - MaggieCN | Blog
+          Python 数据爬虫 - MaggieCN | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.ruozedata.com/article/安装jdk/">
+    <link rel="canonical" href="http://www.ruozedata.com/article/python_数据爬虫/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#linux" title="linux">linux</a>
-                            
-                              <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                              <a class="tag" href="/tags/#python" title="python">python</a>
                             
                         </div>
-                        <h1>JDK安装部署</h1>
-                        <h2 class="subheading">jdk踩坑</h2>
+                        <h1>Python 数据爬虫</h1>
+                        <h2 class="subheading">基础内容</h2>
                         <span class="meta">
                             Posted by Maggie on
-                            2020-11-14
+                            2020-11-19
                         </span>
                     </div>
                 
@@ -214,107 +212,25 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h4 id="安装jdk-重点修改组-用户组">安装jdk （ 重点修改组、用户组）</h4>
-<h4 id="第一步上传jdk文件从windows到linux">第一步：上传jdk文件从windows到linux</h4>
-<ul>
-<li>上传命令：rz</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>目前jdk的这个tar包是在根目录下，可以查看一下</p>
-</li>
-<li>
-<p>查看命令: ll</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll</span><br></pre></td></tr></table></figure>
-<h4 id="第二步创建java文件夹在usr路径下">第二步：创建java文件夹，在/usr/路径下</h4>
-<ul>
-<li>命令：mkdir -p /usr/java/</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/java/</span><br></pre></td></tr></table></figure>
-<h4 id="第三步解压缩tar包到指定目录">第三步：解压缩tar包到指定目录</h4>
-<ul>
-<li>命令：tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</span><br></pre></td></tr></table></figure>
-<ul>
-<li><u>在按到jdk的时候可以按一下tab键自动补全【新手请记住】</u></li>
-</ul>
-<h4 id="第四步-cd-到java路径下查看">第四步： cd 到java路径下查看</h4>
-<ul>
-<li>命令1： cd /usr/java</li>
-<li>命令2：ll</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/java </span><br><span class="line">ll</span><br></pre></td></tr></table></figure>
-<p>​	可以看到已经产生了一个jdk-8u181的文件夹</p>
-<h4 id="第五步更改用户用户组">第五步：更改用户，用户组</h4>
-<ul>
-<li>命令： chown -R root:root  jdk1.8.0_181</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:root  jdk1.8.0_181</span><br></pre></td></tr></table></figure>
-<p>​	drwxr-xr-x 7 10 143 4096 Jul  7  2018 jdk1.8.0_181</p>
-<ul>
-<li>
-<p>对应权限是755 用户 10 用户组143</p>
-</li>
-<li>
-<p>d 代表文件夹</p>
-</li>
-<li>
-<p>rwx  文件或者文件夹的所属用户有读写执行功能</p>
-</li>
-<li>
-<p>r-x  文件或者文件夹的所属用户组的成员，只有读写功能</p>
-</li>
-<li>
-<p>r-x 用户组的其他成员对这个文件或文件夹的权限，只有读写功能</p>
-</li>
-</ul>
-<p><u>更改后的： drwxr-xr-x 7 root root 4096 Jul  7  2018 jdk1.8.0_181</u></p>
-<h4 id="第六步-配置环境变量">第六步： 配置环境变量</h4>
-<p>jdk是一个全局的环境变量</p>
-<ul>
-<li>
-<p>命令：vi /etc/profile</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>大写的G到最后一行</p>
-</li>
-<li>
-<p>i 键 进入编辑模式</p>
-</li>
-<li>
-<p>#Maggie java env<br>
-export JAVA_HOME=/usr/java/jdk1.8.0_181<br>
-export PATH=$JAVA_HOME/bin:$PATH</p>
-</li>
-<li>
-<p>esc 键 再按 :wq 保存退出</p>
-</li>
-</ul>
-<h4 id="第七步-环境变量生效">第七步: 环境变量生效</h4>
-<ul>
-<li>
-<p>命令：source  /etc/profile</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source  /etc/profile</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="第八步-检查是否生效">第八步: 检查是否生效</h4>
-<ul>
-<li>
-<p>检查是否生效命令：java -version</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>检查java的绝对路径：which java</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which java</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>所有命令汇总：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">mkdir -p /usr/java/</span><br><span class="line"></span><br><span class="line">tar -xzvf jdk-8u181-linux-x64.tar.gz -C /usr/java/</span><br><span class="line"></span><br><span class="line">cd /usr/java </span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">chown -R root:root  jdk1.8.0_181</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">G 键</span><br><span class="line"></span><br><span class="line">i 键</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>Maggie java env</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">esc键</span><br><span class="line"></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line">source  /etc/profile</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">which java</span><br></pre></td></tr></table></figure>
+                <h3 id="数据解析">数据解析</h3>
+<p><img src="D:%5Cblog%5Chackeruncle-hexo%5Csource%5Cimg%5Cpython%5C%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90.png" alt="常用数据解析方法"></p>
+<h3 id="json-jsonpath">json-jsonpath</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`pip install jsonpath`</span><br></pre></td></tr></table></figure>
+<p>jupyter 里面 ! pip install jsonpath</p>
+<h2 id="请求方式">请求方式</h2>
+<p>前两种最常用</p>
+<ol>
+<li>get：默认的http请求方式，直接输入网址的方式去访问页面</li>
+<li>post：向web服务器提交表单数据</li>
+<li>put</li>
+<li>delete</li>
+</ol>
+<h2 id="安装requests">安装requests</h2>
+<p>jupyter:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! pip install requests</span><br></pre></td></tr></table></figure>
+<p><a href="http://pypi.org" target="_blank" rel="noopener">pypi.org</a> 所有包-第三方库</p>
+<h2 id="url">url</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">原：</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment"># 定义一个url</span></span><br><span class="line">url = <span class="string">'https://www.baidu.com/'</span></span><br><span class="line">res = requests.get(url=url)</span><br><span class="line">code = res.status_code</span><br><span class="line">print(code)</span><br><span class="line"><span class="keyword">if</span> code == <span class="number">200</span>:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'test.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(res.text)</span><br><span class="line">更改后：</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> codecs <span class="comment">#引入这个包是防止后面乱码，报错无法写入文件</span></span><br><span class="line"><span class="comment"># 定义一个url</span></span><br><span class="line">url = <span class="string">'https://www.baidu.com/'</span></span><br><span class="line">res = requests.get(url=url)</span><br><span class="line">code = res.status_code</span><br><span class="line">print(code)</span><br><span class="line"><span class="keyword">if</span> code == <span class="number">200</span>:</span><br><span class="line">    f=codecs.open(<span class="string">'test.txt'</span>,<span class="string">'a'</span>,<span class="string">'utf-8'</span>) </span><br><span class="line">    f.write(res.text)</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -323,12 +239,12 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Linux 查看大小/" data-toggle="tooltip" data-placement="top" title="Linux 第四次课">&larr; Previous Post</a>
+                            <a href="/article/安装dbeaver/" data-toggle="tooltip" data-placement="top" title="安装dbeaver">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/Linux 错误命令合集/" data-toggle="tooltip" data-placement="top" title="Linux 错误提示">Next Post &rarr;</a>
+                            <a href="/article/安装mysql/" data-toggle="tooltip" data-placement="top" title="mysql安装">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -378,7 +294,7 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安装jdk-重点修改组-用户组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;jdk &#xFF08; &#x91CD;&#x70B9;&#x4FEE;&#x6539;&#x7EC4;&#x3001;&#x7528;&#x6237;&#x7EC4;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第一步上传jdk文件从windows到linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x4E0A;&#x4F20;jdk&#x6587;&#x4EF6;&#x4ECE;windows&#x5230;linux</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第二步创建java文件夹在usr路径下"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;java&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;/usr/&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第三步解压缩tar包到指定目录"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x89E3;&#x538B;&#x7F29;tar&#x5305;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第四步-cd-到java路径下查看"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A; cd &#x5230;java&#x8DEF;&#x5F84;&#x4E0B;&#x67E5;&#x770B;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第五步更改用户用户组"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x66F4;&#x6539;&#x7528;&#x6237;&#xFF0C;&#x7528;&#x6237;&#x7EC4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第六步-配置环境变量"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x7B2C;&#x516D;&#x6B65;&#xFF1A; &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第七步-环境变量生效"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x7B2C;&#x4E03;&#x6B65;: &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#第八步-检查是否生效"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x7B2C;&#x516B;&#x6B65;: &#x68C0;&#x67E5;&#x662F;&#x5426;&#x751F;&#x6548;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数据解析"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6570;&#x636E;&#x89E3;&#x6790;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#json-jsonpath"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">json-jsonpath</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#请求方式"><span class="toc-nav-number"></span> <span class="toc-nav-text">&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装requests"><span class="toc-nav-number"></span> <span class="toc-nav-text">&#x5B89;&#x88C5;requests</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#url"><span class="toc-nav-number"></span> <span class="toc-nav-text">url</span></a>
         
         </div>
       </aside>
@@ -398,9 +314,7 @@ export PATH=$JAVA_HOME/bin:$PATH</p>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#linux" title="linux">linux</a>
-                        
-                          <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                          <a class="tag" href="/tags/#python" title="python">python</a>
                         
                     </div>
                 </section>
