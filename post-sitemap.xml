@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://www.ruozedata.com/article/hadoop02/</loc>
+        <lastmod>2020-12-01T06:34:45.003Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ruozedata.com/article/hadoop01/</loc>
+        <lastmod>2020-12-01T06:33:22.403Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ruozedata.com/article/Linux%20%E5%86%85%E5%9C%A8%E7%BB%93%E6%9E%84/</loc>
         <lastmod>2020-11-30T13:25:11.233Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,14 +65,6 @@
     <url>
         <loc>http://www.ruozedata.com/article/%E5%AE%89%E8%A3%85dbeaver/</loc>
         <lastmod>2020-11-30T13:16:14.627Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ruozedata.com/article/hadoop01/</loc>
-        <lastmod>2020-11-30T13:02:10.594Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

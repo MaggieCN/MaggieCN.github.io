@@ -92,7 +92,7 @@
                             
                         </div>
                         <h1>hadoop01</h1>
-                        <h2 class="subheading"></h2>
+                        <h2 class="subheading">hadoop安装-基础内容-更改配置</h2>
                         <span class="meta">
                             Posted by Maggie on
                             2020-11-24
@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -351,12 +351,13 @@ The key fingerprint is:…</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
-<p>重启dfs<br>
-<a href="http://stop-dfs.sh" target="_blank" rel="noopener">stop-dfs.sh</a><br>
-<a href="http://start-dfs.sh" target="_blank" rel="noopener">start-dfs.sh</a></p>
+<p>重启dfs</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 hadoop]$ cd /home/hadoop/app/hadoop</span><br><span class="line">  [hadoop@hadoop001 hadoop]$ sbin/stop-dfs.sh</span><br><span class="line">  [hadoop@hadoop001 hadoop]$ bin/hdfs namenode -format</span><br><span class="line">  可以在日志里看到已经storage directory 更改为/home/hadoop/tmp下了</span><br><span class="line">  20/12/01 09:51:45 INFO namenode.NameNod: STARTUP_MSG: </span><br><span class="line">  20/12/01 09:51:46 INFO common.Storage: Storage directory /home/hadoop/tmp/dfs/name has been successfully formatted.</span><br><span class="line">  [hadoop@hadoop001 hadoop]$ sbin/start-dfs.sh</span><br><span class="line">  [hadoop@hadoop001 hadoop]$ jps</span><br><span class="line">  26555 Jps</span><br><span class="line">  25563 NameNode</span><br><span class="line">  25709 DataNode</span><br><span class="line">  25887 SecondaryNameNode</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<ul>
 <li>
-<p>但是namenode、datanode、checkpoint(secondarynamenode)官方默认配置如下:<br>
+<p>namenode、datanode、checkpoint(secondarynamenode)官方默认配置如下:<br>
 dfs.namenode.name.dir --&gt; file://${hadoop.tmp.dir}/dfs/name<br>
 dfs.datanode.data.dir --&gt; file://${hadoop.tmp.dir}/dfs/data<br>
 dfs.namenode.checkpoint.dir --&gt; file://${hadoop.tmp.dir}/dfs/namesecondary</p>
