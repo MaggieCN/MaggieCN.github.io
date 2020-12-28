@@ -30,13 +30,6 @@
     </url>
 
     <url>
-        <loc>http://www.ruozedata.com/tags/hadoop/</loc>
-        <lastmod>2020-12-23T00:23:28.810Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.ruozedata.com/tags/Hive/</loc>
         <lastmod>2020-12-28T01:05:08.696Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +39,13 @@
     <url>
         <loc>http://www.ruozedata.com/tags/%E9%A1%B9%E7%9B%AE/</loc>
         <lastmod>2020-12-28T01:07:49.133Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ruozedata.com/tags/hadoop/</loc>
+        <lastmod>2020-12-28T01:14:02.663Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

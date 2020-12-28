@@ -211,81 +211,46 @@
 
 <div class="post-preview">
 
-    <a href="/article/hadoop04/">
+    <a href="/article/安装mysql/">
         <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
                                  
-            Untitled
+            mysql安装
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            hadoop04
-fsimage&amp;&amp;edit
-Namenode主要维护两个文件，一个是 fsimage，一个是 editlog。
-fsimage保存了最新的元数据检查点，包含了整个HDFS文件系统的所有目录和文件的信息。对于文件来说包括了数据块描述信息、修改时间、访问时间等；对于目录来说包括修改时间、访问权限控制信息(目录所属用户，所在组)等。
-editlog主要是在Name......
+            安装mysql
+步骤：本文安装是5.7版本
+步骤参考视频-若泽讲解
+安装步骤面试时要按下面大概说出来
+
+check 系统是否安装或运行Mysql
+download mysql 源码包和解压
+创建管理用户mysqladmin和用户组dba
+配置**/etc/my.cnf**
+对4的文件和源码文件夹赋权限（用户、用户组、RWX）
+配置Mysql服务和设置开机自动启动
+切换mysqladmin ，......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-12-28
+            2020-11-16
         </p>
         <div class="tags">
             
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/hadoop03_HDFS/">
-        <h2 class="post-title">
-                                 
-            Untitled
-        </h2>
-        <h3 class="post-subtitle">
+              <a href="/tags/#linux" title="linux">linux</a>
             
-        </h3>
-        <div class="post-content-preview">
-            HDFS
-架构图
-
-
-HDFS 是主从架构
-
-
-
-client 读和写都是从datanode里获取的
-
-
-namenode: nn 名称节点，包含以下内容
-
-
-文件的名称
-
-
-文件的目录结构
-
-
-文件的属性（权限、副本数、创建时间、大小）
-
-
-一个文件被对应切割哪些数据块（包含副本数的块）
--》 对应分布在哪些datanode上
--》blockmap 块映射
--》映射存在内存里，nn是不会持......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-12-28
-        </p>
-        <div class="tags">
+              <a href="/tags/#mysql" title="mysql">mysql</a>
             
         </div>
     
@@ -319,43 +284,6 @@ https://www.bilibili.com/video/BV1uJ411W7Tj?from=search&amp;seid=466998251311666
         <div class="tags">
             
               <a href="/tags/#项目" title="项目">项目</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/hadoop05/">
-        <h2 class="post-title">
-                                 
-            Untitled
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            hadoop05-mapreduce/yarn
-mapreduce —— hive 的执行引擎也就是mapreduce
-分布式计算框架
-map 映射
-
-指的是一组数据按照规则映射为一组
-读取文件，将文件内容按照一定的规则，拆分成《k,v》的形式
-
-1234例如：string = abamap(string)结果： (a,1)   (b,1)  (a,1)1表示出现一次
-reduce 归约
-就......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-12-15
-        </p>
-        <div class="tags">
             
         </div>
     
@@ -482,6 +410,77 @@ hive中的partition就是辅助查询，缩小查询范围
 
 <div class="post-preview">
 
+    <a href="/article/hadoop05/">
+        <h2 class="post-title">
+                                 
+            hadoop05
+        </h2>
+        <h3 class="post-subtitle">
+            mapreduce && yarn
+        </h3>
+        <div class="post-content-preview">
+            mapreduce —— hive 的执行引擎也就是mapreduce
+分布式计算框架
+map 映射
+
+指的是一组数据按照规则映射为一组
+读取文件，将文件内容按照一定的规则，拆分成《k,v》的形式
+
+1234例如：string = abamap(string)结果： (a,1)   (b,1)  (a,1)1表示出现一次
+reduce 归约
+就是把上面的三个结果，一样的key 组合在一起
+(......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-12-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/hadoop04/">
+        <h2 class="post-title">
+                                 
+            hadoop04
+        </h2>
+        <h3 class="post-subtitle">
+            snn 原理&& hdfs 命令
+        </h3>
+        <div class="post-content-preview">
+            fsimage&amp;&amp;edit
+Namenode主要维护两个文件，一个是 fsimage，一个是 editlog。
+fsimage保存了最新的元数据检查点，包含了整个HDFS文件系统的所有目录和文件的信息。对于文件来说包括了数据块描述信息、修改时间、访问时间等；对于目录来说包括修改时间、访问权限控制信息(目录所属用户，所在组)等。
+editlog主要是在NameNode已经启动情......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-12-01
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/article/Hive03/">
         <h2 class="post-title">
                                  
@@ -592,7 +591,7 @@ hdfs的数据能否使用hive来处理？
     
     
         <li class="next">
-            <a href="/archives/2/">Older Posts &rarr;</a>
+            <a href="/page/2/">Older Posts &rarr;</a>
         </li>
     
 </ul>
@@ -629,19 +628,19 @@ hdfs的数据能否使用hive来处理？
             
         
             
-            <a href="/tags/#dbeaver" title="dbeaver" rel="2">dbeaver</a>
-            
-        
-            
             <a href="/tags/#linux" title="linux" rel="7">linux</a>
             
         
             
-            <a href="/tags/#项目" title="项目" rel="1">项目</a>
+            <a href="/tags/#dbeaver" title="dbeaver" rel="2">dbeaver</a>
             
         
             
-            <a href="/tags/#hadoop" title="hadoop" rel="3">hadoop</a>
+            <a href="/tags/#hadoop" title="hadoop" rel="6">hadoop</a>
+            
+        
+            
+            <a href="/tags/#项目" title="项目" rel="1">项目</a>
             
         
             
@@ -705,23 +704,23 @@ hdfs的数据能否使用hive来处理？
     <ul>
       
         <li>
-          <a href="/article/hadoop04/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/hadoop03_HDFS/">(no title)</a>
-        </li>
-      
-        <li>
           <a href="/article/erp/">项目-ERP</a>
         </li>
       
         <li>
-          <a href="/article/hadoop05/">(no title)</a>
+          <a href="/article/Hive05/">Hive05</a>
         </li>
       
         <li>
-          <a href="/article/Hive05/">Hive05</a>
+          <a href="/article/Hive常用语句-&&-Hive简单小例子/">Hive常用语句 &amp;&amp; Hive简单小例子</a>
+        </li>
+      
+        <li>
+          <a href="/article/Hive04/">Hive04</a>
+        </li>
+      
+        <li>
+          <a href="/article/hadoop05/">hadoop05</a>
         </li>
       
     </ul>
@@ -744,7 +743,7 @@ hdfs的数据能否使用hive来处理？
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">15</span></li></ul>
     </div>
 
         <hr>

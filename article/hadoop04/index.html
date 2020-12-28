@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          MaggieCN | Blog
+          hadoop04 - MaggieCN | Blog
         
     </title>
 
@@ -88,12 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#hadoop" title="hadoop">hadoop</a>
+                            
                         </div>
-                        <h1></h1>
-                        <h2 class="subheading"></h2>
+                        <h1>hadoop04</h1>
+                        <h2 class="subheading">snn 原理&amp;&amp; hdfs 命令</h2>
                         <span class="meta">
                             Posted by Maggie on
-                            2020-12-28
+                            2020-12-01
                         </span>
                     </div>
                 
@@ -210,8 +212,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>hadoop04</p>
-<h3 id="fsimageampampedit">fsimage&amp;&amp;edit</h3>
+                <h3 id="fsimageampampedit">fsimage&amp;&amp;edit</h3>
 <p><strong>Namenode主要维护两个文件，一个是 fsimage，一个是 editlog。</strong></p>
 <p>fsimage保存了最新的元数据检查点，包含了整个HDFS文件系统的所有目录和文件的信息。对于文件来说包括了数据块描述信息、修改时间、访问时间等；对于目录来说包括修改时间、访问权限控制信息(目录所属用户，所在组)等。</p>
 <p>editlog主要是在NameNode已经启动情况下对HDFS进行的各种更新操作进行记录，HDFS客户端执行所有的写操作都会被记录到editlog中。</p>
@@ -357,9 +358,13 @@ hdfs diskbalancer -query hadoop001</p>
                 <!-- Pager -->
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/article/hive01/" data-toggle="tooltip" data-placement="top" title="Hive01">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
-                            <a href="/article/hadoop03_HDFS/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                            <a href="/article/hadoop03_HDFS/" data-toggle="tooltip" data-placement="top" title="hadoop03">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -403,6 +408,18 @@ hdfs diskbalancer -query hadoop001</p>
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#fsimageampampedit"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">fsimage&amp;&amp;edit</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#snnsecondarynamenode"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">SNN&#xFF08;SecondaryNamenode&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hadoop-命令"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">hadoop &#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hdfs命令"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">hdfs&#x547D;&#x4EE4;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#hadoop-fs-hdfs-dfs"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">hadoop fs == hdfs dfs</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#hadoop-fs-hdfs-dfs-常用命令"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">hadoop fs /hdfs dfs &#x5E38;&#x7528;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#hdfs常用命令"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">hdfs&#x5E38;&#x7528;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#hdfs-dfsadmin-管理操作命令"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">hdfs dfsadmin &#x7BA1;&#x7406;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#hdfs-fsck-健康检查"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">hdfs fsck &#x5065;&#x5EB7;&#x68C0;&#x67E5;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#jmxget-第三方开发监测hdfs的使用情况"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">jmxget &#x7B2C;&#x4E09;&#x65B9;&#x5F00;&#x53D1;&#xFF0C;&#x76D1;&#x6D4B;hdfs&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安全模式"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x5B89;&#x5168;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#回收站"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x56DE;&#x6536;&#x7AD9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#各个节点平衡datanode之间的平衡"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x5404;&#x4E2A;&#x8282;&#x70B9;&#x5E73;&#x8861;&#xFF08;datanode&#x4E4B;&#x95F4;&#x7684;&#x5E73;&#x8861;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#单个节点多块磁盘平衡"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">&#x5355;&#x4E2A;&#x8282;&#x70B9;&#x591A;&#x5757;&#x78C1;&#x76D8;&#x5E73;&#x8861;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#作业"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">&#x4F5C;&#x4E1A;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
                 
             <!-- Sidebar Container -->
             <div class="
@@ -417,6 +434,8 @@ hdfs diskbalancer -query hadoop001</p>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#hadoop" title="hadoop">hadoop</a>
+                        
                     </div>
                 </section>
                 
