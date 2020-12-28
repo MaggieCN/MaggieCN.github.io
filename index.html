@@ -211,32 +211,28 @@
 
 <div class="post-preview">
 
-    <a href="/article/数仓简单知识/">
+    <a href="/article/hadoop04/">
         <h2 class="post-title">
                                  
-            数仓简单知识
+            Untitled
         </h2>
         <h3 class="post-subtitle">
-            数仓（离线/实时）&& 数据迁移
+            
         </h3>
         <div class="post-content-preview">
-            数据仓库的根本：数据质量，保证数据不丢，哪怕丢了 能够检测  补齐  重跑计算
-离线数仓：
-	数据源同步 Oracle/MySQL–&gt;SQOOP/datax/kettle–&gt;Hive
-	ETL加工    Hive sql、Spark sql(hive)、Spark Code
-实时数仓:
-	数据源同步 Oracle–&gt;OGG     --&gt;Kafka
-					    ......
+            hadoop04
+fsimage&amp;&amp;edit
+Namenode主要维护两个文件，一个是 fsimage，一个是 editlog。
+fsimage保存了最新的元数据检查点，包含了整个HDFS文件系统的所有目录和文件的信息。对于文件来说包括了数据块描述信息、修改时间、访问时间等；对于目录来说包括修改时间、访问权限控制信息(目录所属用户，所在组)等。
+editlog主要是在Name......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-30
+            2020-12-28
         </p>
         <div class="tags">
-            
-              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
             
         </div>
     
@@ -246,31 +242,50 @@
 
 <div class="post-preview">
 
-    <a href="/article/dbeaver-使用/">
+    <a href="/article/hadoop03_HDFS/">
         <h2 class="post-title">
                                  
-            dbeaver 使用
+            Untitled
         </h2>
         <h3 class="post-subtitle">
-            dbeaver
+            
         </h3>
         <div class="post-content-preview">
-            Dbeaver 使用的时候有一些问题
+            HDFS
+架构图
 
 
-无法多条insert
-例如：
-123insert into maggiecn.`result` (name,age) values(&apos;jepson&apos;,30);insert into maggiecn.`result` (name,age) values(&apos;maggie&apos;,60);insert into magg......
+HDFS 是主从架构
+
+
+
+client 读和写都是从datanode里获取的
+
+
+namenode: nn 名称节点，包含以下内容
+
+
+文件的名称
+
+
+文件的目录结构
+
+
+文件的属性（权限、副本数、创建时间、大小）
+
+
+一个文件被对应切割哪些数据块（包含副本数的块）
+-》 对应分布在哪些datanode上
+-》blockmap 块映射
+-》映射存在内存里，nn是不会持......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-30
+            2020-12-28
         </p>
         <div class="tags">
-            
-              <a href="/tags/#dbeaver" title="dbeaver">dbeaver</a>
             
         </div>
     
@@ -280,29 +295,30 @@
 
 <div class="post-preview">
 
-    <a href="/article/hadoop02/">
+    <a href="/article/erp/">
         <h2 class="post-title">
                                  
-            hadoop02
+            项目-ERP
         </h2>
         <h3 class="post-subtitle">
-            yarn部署-jps-pid-hdfs存储模式
+            ERP
         </h3>
         <div class="post-content-preview">
-            主从架构
-yarn
-配置mapred-site.xml
-12345678910111213141516171819202122232425262728293031323334[root@hadoop001 ~]# su - hadoop[hadoop@hadoop001 ~]$ cd app/hadoop/etc/hadoop[hadoop@hadoop001 hadoop]$ ll-rw-......
+            erp 部署运行（b站）
+https://www.bilibili.com/video/BV1uJ411W7Tj?from=search&amp;seid=4669982513116667546
+安装idea(2019.3)
+[坑]idea2019.3 以后的与apache-maven3.6 适配
+我本地已经安装了2019.1的IDEA, 教程给的是3.6.3的apache-maven, 查......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-27
+            2020-12-20
         </p>
         <div class="tags">
             
-              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
+              <a href="/tags/#项目" title="项目">项目</a>
             
         </div>
     
@@ -312,39 +328,34 @@ yarn
 
 <div class="post-preview">
 
-    <a href="/article/mysql_join语句/">
+    <a href="/article/hadoop05/">
         <h2 class="post-title">
                                  
-            Mysql基础语法
+            Untitled
         </h2>
         <h3 class="post-subtitle">
-            mysql基础知识-sql语句-join语句相关
+            
         </h3>
         <div class="post-content-preview">
-            mysql 基础
-数值类型
-int  整数
-long 长整型
-float    单精度
-double   双精度
-decimal  钱
-字符串
-char 字节       定长0-255长度    jepsonxxxxxx 自动补齐
-varchar 字符串   变长0-65535字节  jepson
-日期
-date 日期 YYYY-MM-DD
-time 时间 HH:MM:SS
-datetim......
+            hadoop05-mapreduce/yarn
+mapreduce —— hive 的执行引擎也就是mapreduce
+分布式计算框架
+map 映射
+
+指的是一组数据按照规则映射为一组
+读取文件，将文件内容按照一定的规则，拆分成《k,v》的形式
+
+1234例如：string = abamap(string)结果： (a,1)   (b,1)  (a,1)1表示出现一次
+reduce 归约
+就......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-25
+            2020-12-15
         </p>
         <div class="tags">
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
             
         </div>
     
@@ -354,36 +365,44 @@ datetim......
 
 <div class="post-preview">
 
-    <a href="/article/hadoop01/">
+    <a href="/article/Hive05/">
         <h2 class="post-title">
                                  
-            hadoop01
+            Hive05
         </h2>
         <h3 class="post-subtitle">
-            hadoop安装-基础内容-更改配置
+            hive 高级语句 && sqoop抽取
         </h3>
         <div class="post-content-preview">
-            大数据组成： 存储、计算、资源调度
-存储： hdfs hive hbase kudu
-计算：资源只涉及到Cpu 和内存 sql
-资源和计算作业的调度分配 yarn
+            SQOOP
+概念
 
-sql 语句基础一定要好（sql行转列，列转行）
-未来高级的scala/java/python(少)、spark、flink
 
-域名规则
-https://hadoop.apache.org
-https://hadoop.apac......
+在关系型数据库和Hadoop之上建立了一个桥梁，让我们方便的完成数据的导入导出操作
+
+
+Sqoop的底层使用MR来完成的，只进行map 作业，不进行reduce作业
+
+
+Sqoop 有两个版本 ：1.4.7   Sqoop1 ；1.99.7  Sqoop2
+
+V1 V2 没有任何关系 不兼容
+
+
+
+配置
+1.系统环境变量
+123vi .bashrcexport SQOO......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-24
+            2020-12-13
         </p>
         <div class="tags">
             
-              <a href="/tags/#hadoop" title="hadoop">hadoop</a>
+              <a href="/tags/#Hive" title="Hive">Hive</a>
             
         </div>
     
@@ -393,37 +412,27 @@ https://hadoop.apac......
 
 <div class="post-preview">
 
-    <a href="/article/安装dbeaver/">
+    <a href="/article/Hive常用语句-&&-Hive简单小例子/">
         <h2 class="post-title">
                                  
-            安装dbeaver
+            Hive常用语句 && Hive简单小例子
         </h2>
         <h3 class="post-subtitle">
-            dbeaver 最强大的数据库连接
+            hive 高级语句 && sqoop抽取
         </h3>
         <div class="post-content-preview">
-            安装dbeaver
-有各种类别的数据库，包括hive等，比navicat更强大
-【若泽大数据实战第六天】大数据平台DB监控软件 dbeaver安装+jdk1.8_强悍de巨人-CSDN博客
-第一步：下载jdk windows 版本
-Jdk下载页面
-
-
-不想下载目前最高版本可以拉到页面最下端， 点击java archive 即可找到历史版本
-
-
-Java Archive
-The Java Ar......
+            常用语句
+12345678910111213141516use database;create table emp_info(id string,name string,dept string,sex string)PARTITIONED BY (day string, hour string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';LO......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-20
+            2020-12-13
         </p>
         <div class="tags">
             
-              <a href="/tags/#dbeaver" title="dbeaver">dbeaver</a>
+              <a href="/tags/#Hive" title="Hive">Hive</a>
             
         </div>
     
@@ -433,182 +442,141 @@ The Java Ar......
 
 <div class="post-preview">
 
-    <a href="/article/python_数据爬虫/">
+    <a href="/article/Hive04/">
         <h2 class="post-title">
                                  
-            Python 数据爬虫
+            Hive04
         </h2>
         <h3 class="post-subtitle">
-            基础内容
+            partition(分区)
         </h3>
         <div class="post-content-preview">
-            数据解析
+            PARTITIONED BY
+概念
+分区表：在关系型数据库中也有分区，分区中有操作日志表：
+其主要作用：记录日志、查询操作——谁什么时间做了什么 who when what
+以xxx_20201210.log 日期为单位存储
 
-json-jsonpath
-1`pip install jsonpath`
-jupyter 里面 ! pip install jsonpath
-请求方式
-前两种最常用
+hive中的partition就是辅助查询，缩小查询范围
+加快数据的检索速度和对数据按照一定的规格和条件进行管理。
+ＩＯ开销更小
 
-get：默认的http请求方式，直接输入网址的方式去访问页面
-post：向web服务器提交表单数据
-put
-delete
+创建分区表
+12345678创建分......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-12-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Hive" title="Hive">Hive</a>
+            
+        </div>
+    
 
-安装requests
-jupyter:
-1! pip install requests
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Hive03/">
+        <h2 class="post-title">
+                                 
+            Hive03
+        </h2>
+        <h3 class="post-subtitle">
+            DML
+        </h3>
+        <div class="post-content-preview">
+            https://cwiki.apache.org/confluence/display/Hive
+1234567891011在hive中创建表create table emp (            empno int,            ename string,            job string,            mgr int,            hireda......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-12-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Hive" title="Hive">Hive</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Hive02/">
+        <h2 class="post-title">
+                                 
+            Hive02
+        </h2>
+        <h3 class="post-subtitle">
+            Hive DDL 命令/ 内部表&&外部表
+        </h3>
+        <div class="post-content-preview">
+            Hive 默认引擎
+hive&gt; set hive.execution.engine;   ## 查看
+hive.execution.engine=mr
+hive&gt; set hive.execution.engine=tez;     ## 改名字
+推荐更改下面两个参数（这两个默认参数都是false），比较方便我们后续查询以及显示
+12345678910###是否打印列名 在hea......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Maggie on
+            2020-12-06
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Hive" title="Hive">Hive</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/hive01/">
+        <h2 class="post-title">
+                                 
+            Hive01
+        </h2>
+        <h3 class="post-subtitle">
+            Hive01
+        </h3>
+        <div class="post-content-preview">
+            基础网站
+顶级项目：xxx.apache.org
+git: github.com/apache/xxx
+cdh: archive.cloudera.com/cdh5/cdh/5
+hadoop\hive\sqoop\hbase 选择尾号是相同的（版本兼容）
+但spark尾号 除外
+上课问题
+为什么选择hadoop2学习，不选3学习
+2稳定，兼容
+hdfs的数据能否使用hive来处理？
+可以！
 ......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Maggie on
-            2020-11-19
+            2020-12-05
         </p>
         <div class="tags">
             
-              <a href="/tags/#python" title="python">python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/安装mysql/">
-        <h2 class="post-title">
-            
-                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
-                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
-                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
-                <font color=#F4711F>置顶</font>
-                <!-- <font color=#F89E8C>置顶</font>  -->
-                <!-- <font color=#1CB7ED>置顶</font>  -->
-                                 
-            mysql安装
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            安装mysql
-步骤：本文安装是5.7版本
-步骤参考视频-若泽讲解
-安装步骤面试时要按下面大概说出来
-
-check 系统是否安装或运行Mysql
-download mysql 源码包和解压
-创建管理用户mysqladmin和用户组dba
-配置**/etc/my.cnf**
-对4的文件和源码文件夹赋权限（用户、用户组、RWX）
-配置Mysql服务和设置开机自动启动
-切换mysqladmin ，......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-11-16
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/Linux 查看大小/">
-        <h2 class="post-title">
-                                 
-            Linux 第四次课
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            文件大小
-1ll -h
-文件或文件夹大小
-1du -sh
-磁盘大小
-1df -h
-Filesystem      Size  Used Avail Use% Mounted on
-devtmpfs        3.9G     0    3.9G   0%    /dev
-tmpfs              3.9G     0    3.9G   0%    /dev/shm
-tmpf......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-11-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/安装jdk/">
-        <h2 class="post-title">
-                                 
-            JDK安装部署
-        </h2>
-        <h3 class="post-subtitle">
-            jdk踩坑
-        </h3>
-        <div class="post-content-preview">
-            安装jdk （ 重点修改组、用户组）
-第一步：上传jdk文件从windows到linux
-
-上传命令：rz
-
-1rz
-
-
-目前jdk的这个tar包是在根目录下，可以查看一下
-
-
-查看命令: ll
-
-
-1ll
-第二步：创建java文件夹，在/usr/路径下
-
-命令：mkdir -p /usr/java/
-
-1mkdir -p /usr/java/
-第三步：解压缩tar包到指定目录
-
-命令：ta......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Maggie on
-            2020-11-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#linux" title="linux">linux</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
+              <a href="/tags/#Hive" title="Hive">Hive</a>
             
         </div>
     
@@ -657,7 +625,7 @@ tmpf......
     <div class="tags">
         
             
-            <a href="/tags/#linux" title="linux" rel="7">linux</a>
+            <a href="/tags/#Hive" title="Hive" rel="6">Hive</a>
             
         
             
@@ -665,11 +633,19 @@ tmpf......
             
         
             
-            <a href="/tags/#mysql" title="mysql" rel="3">mysql</a>
+            <a href="/tags/#linux" title="linux" rel="7">linux</a>
+            
+        
+            
+            <a href="/tags/#项目" title="项目" rel="1">项目</a>
             
         
             
             <a href="/tags/#hadoop" title="hadoop" rel="3">hadoop</a>
+            
+        
+            
+            <a href="/tags/#mysql" title="mysql" rel="3">mysql</a>
             
         
             
@@ -729,23 +705,23 @@ tmpf......
     <ul>
       
         <li>
-          <a href="/article/数仓简单知识/">数仓简单知识</a>
+          <a href="/article/hadoop04/">(no title)</a>
         </li>
       
         <li>
-          <a href="/article/dbeaver-使用/">dbeaver 使用</a>
+          <a href="/article/hadoop03_HDFS/">(no title)</a>
         </li>
       
         <li>
-          <a href="/article/hadoop02/">hadoop02</a>
+          <a href="/article/erp/">项目-ERP</a>
         </li>
       
         <li>
-          <a href="/article/mysql_join语句/">Mysql基础语法</a>
+          <a href="/article/hadoop05/">(no title)</a>
         </li>
       
         <li>
-          <a href="/article/hadoop01/">hadoop01</a>
+          <a href="/article/Hive05/">Hive05</a>
         </li>
       
     </ul>
@@ -768,7 +744,7 @@ tmpf......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">14</span></li></ul>
     </div>
 
         <hr>

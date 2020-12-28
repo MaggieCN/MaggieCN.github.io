@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Hive03 - MaggieCN | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.ruozedata.com/article/Hive03/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/time.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Hive" title="Hive">Hive</a>
+                            
+                        </div>
+                        <h1>Hive03</h1>
+                        <h2 class="subheading">DML</h2>
+                        <span class="meta">
+                            Posted by Maggie on
+                            2020-12-09
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MaggieCN&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p><a href="https://cwiki.apache.org/confluence/display/Hive" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在hive中创建表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp (</span><br><span class="line">            empno <span class="built_in">int</span>,</span><br><span class="line">            ename <span class="keyword">string</span>,</span><br><span class="line">            job <span class="keyword">string</span>,</span><br><span class="line">            mgr <span class="built_in">int</span>,</span><br><span class="line">            hiredate <span class="keyword">string</span>,</span><br><span class="line">            sal <span class="keyword">double</span>,</span><br><span class="line">            comm <span class="keyword">double</span>,</span><br><span class="line">            deptno <span class="built_in">int</span></span><br><span class="line">             ) <span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查看某个表的具体信息</span><br><span class="line">desc formatted table;</span><br></pre></td></tr></table></figure>
+<h3 id="dmlloadinsertupdatedeletemerge">DML(load/insert/update/delete/merge)</h3>
+<h4 id="load">load</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LOAD</span> <span class="keyword">DATA</span> [<span class="keyword">LOCAL</span>] INPATH <span class="string">'filepath'</span> [OVERWRITE] <span class="keyword">INTO</span> <span class="keyword">TABLE</span> tablename [<span class="keyword">PARTITION</span> (partcol1=val1, partcol2=val2 ...)]</span><br></pre></td></tr></table></figure>
+<pre><code>LOAD DATA：加载数据
+【LOCAL】：可有可无   
+			有：从本地[Hive客户端所在的机器]加载数据到Hive表
+			无：从文件系统加载数据到Hive表
+INPATH：加载数据的路径
+OVERWRITE：可有可无
+			有：覆盖已有的数据  overwrite
+			无：追加 append
+INTO TABLE：加载数据到哪个表中
+</code></pre>
+<p><strong>本地文件 加载到hive表里</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LOAD</span> <span class="keyword">DATA</span> <span class="keyword">LOCAL</span> INPATH <span class="string">'/home/hadoop/data/emp.txt'</span> OVERWRITE <span class="keyword">INTO</span> <span class="keyword">TABLE</span> emp;</span><br><span class="line"><span class="keyword">LOAD</span> <span class="keyword">DATA</span> <span class="keyword">LOCAL</span> INPATH <span class="string">'/home/hadoop/data/dept.txt'</span> OVERWRITE <span class="keyword">INTO</span> <span class="keyword">TABLE</span> dept;</span><br></pre></td></tr></table></figure>
+<p><strong>hdfs的表加载到hive</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 data]$ hadoop fs -mkdir -p /data/hive</span><br><span class="line">[hadoop@hadoop001 data]$ hadoop fs -put emp.txt /data/hive/</span><br><span class="line">[hadoop@hadoop001 data]$ hadoop fs -ls  /data/hive/</span><br><span class="line">-rw-r<span class="comment">--r--   1 hadoop supergroup        700 2020-12-14 12:58 /data/hive/emp.txt</span></span><br><span class="line"></span><br><span class="line">hive (default)&gt; use hive1;</span><br><span class="line">hive (hive1)&gt; LOAD DATA INPATH '/data/hive/emp.txt' OVERWRITE INTO TABLE emp;</span><br><span class="line">hive (hive1)&gt; select * from emp;</span><br><span class="line">OK</span><br><span class="line">emp.empno	emp.ename	emp.job	emp.mgr	emp.hiredate	emp.sal	emp.comm	emp.deptno</span><br><span class="line">7369	SMITH	CLERK	7902	1980-12-17	800.0	NULL	20</span><br><span class="line">7499	ALLEN	SALESMAN	7698	1981-2-20	1600.0	300.0	30</span><br><span class="line">7521	WARD	SALESMAN	7698	1981-2-22	1250.0	500.0	30</span><br><span class="line">7566	JONES	MANAGER	7839	1981-4-2	2975.0	NULL	20</span><br><span class="line">7654	MARTIN	SALESMAN	7698	1981-9-28	1250.0	1400.0	30</span><br><span class="line">7698	BLAKE	MANAGER	7839	1981-5-1	2850.0	NULL	30</span><br><span class="line">7782	CLARK	MANAGER	7839	1981-6-9	2450.0	NULL	10</span><br><span class="line">7788	SCOTT	ANALYST	7566	1987-4-19	3000.0	NULL	20</span><br><span class="line">7839	KING	PRESIDENT	NULL	1981-11-17	5000.0	NULL	10</span><br><span class="line">7844	TURNER	SALESMAN	7698	1981-9-8	1500.0	0.0	30</span><br><span class="line">7876	ADAMS	CLERK	7788	1987-5-23	1100.0	NULL	20</span><br><span class="line">7900	JAMES	CLERK	7698	1981-12-3	950.0	NULL	30</span><br><span class="line">7902	FORD	ANALYST	7566	1981-12-3	3000.0	NULL	20</span><br><span class="line">7934	MILLER	CLERK	7782	1982-1-23	1300.0	NULL	10</span><br><span class="line">8888	HIVE	PROGRAM	7839	1988-1-23	10300.0	NULL	NULL</span><br></pre></td></tr></table></figure>
+<p><strong>去掉overwrite</strong>, numFiles变为2，数据也变成两份</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hive (hive1)&gt;LOAD DATA LOCAL INPATH '/home/hadoop/data/emp.txt' INTO TABLE emp;</span><br><span class="line">Loading data to table hive1.emp</span><br><span class="line">Table hive1.emp stats: [numFiles=2, totalSize=1400]</span><br></pre></td></tr></table></figure>
+<h4 id="insert">insert</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">覆盖：<span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> tablename1 [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] select_statement1 <span class="keyword">FROM</span> from_statement;</span><br><span class="line">追加：<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TABLE</span> tablename1 [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] select_statement1 <span class="keyword">FROM</span> from_statement;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> emp2 <span class="keyword">select</span> * <span class="keyword">FROM</span> emp;</span><br><span class="line">直接执行是不行的</span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> emp2 <span class="keyword">select</span> * <span class="keyword">FROM</span> emp;</span><br><span class="line">FAILED: SemanticException [Error 10001]: Line 1:23 Table not found 'emp2'</span><br><span class="line">因为还没有创建emp2，采用<span class="keyword">insert</span>语句，emp2表必须事前存在。</span><br></pre></td></tr></table></figure>
+<p>正确操作：(有执行mr作业)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hive (hive1)&gt; create table emp2 like emp;</span><br><span class="line">hive (hive1)&gt; INSERT OVERWRITE TABLE emp2 select * FROM emp;</span><br></pre></td></tr></table></figure>
+<p>extension写法(适用于多个插入)：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM from_statement</span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> tablename1 select_statement1</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM emp</span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> result1 A业务 </span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> result2 B业务 </span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> emp2 <span class="keyword">select</span> * <span class="keyword">where</span> deptno=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>错误语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hive (hive1)&gt; INSERT OVERWRITE TABLE emp2 select empno, ename from emp;</span><br><span class="line">FAILED: SemanticException [Error 10044]: Line 1:23 Cannot <span class="keyword">insert</span> <span class="keyword">into</span> target <span class="keyword">table</span> because <span class="keyword">column</span> <span class="built_in">number</span>/types <span class="keyword">are</span> different <span class="string">'emp2'</span>: <span class="keyword">Table</span> insclause<span class="number">-0</span> has <span class="number">8</span> <span class="keyword">columns</span>, but <span class="keyword">query</span> has <span class="number">2</span> columns.</span><br></pre></td></tr></table></figure>
+<p>原因是emp2表有多个字段，要补齐。表里有几个字段，sql就要对应写几个字段。</p>
+<p>正确示范：（<strong>注意！字段顺序一定要对应</strong>）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> emp2 </span><br><span class="line"><span class="keyword">select</span> empno,job ,ename,mgr,hiredate,sal ,comm,deptno <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>insert into …values <strong>[生产上不用]</strong></p>
+<p>创建表的时候要规定分隔符！！</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hive (hive1)&gt; create table dept(</span><br><span class="line">            deptno int,</span><br><span class="line">            dname string,</span><br><span class="line">            loc string</span><br><span class="line">            ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';</span><br><span class="line">hive (hive1) &gt; INSERT INTO TABLE dept VALUES (95271, 'DEV', 'BJ'),(95281, 'QA', 'SZ');</span><br></pre></td></tr></table></figure>
+<p>原因：1. insert时肯定是要跑mr作业的，速度慢</p>
+<p>​            2. 更重要的一点：每插入一次，hdfs就新增一个文件，小文件增加</p>
+<p><strong>CTAS(create table as select)</strong> 表不能存在</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp3 <span class="keyword">as</span> <span class="keyword">select</span> * <span class="keyword">from</span> emp2;</span><br></pre></td></tr></table></figure>
+<p><strong>插入表数据（合并小文件）</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp4 (</span><br><span class="line">            empno <span class="built_in">int</span>,</span><br><span class="line">            ename <span class="keyword">string</span>,</span><br><span class="line">            job <span class="keyword">string</span>,</span><br><span class="line">            mgr <span class="built_in">int</span>,</span><br><span class="line">            hiredate <span class="keyword">string</span>,</span><br><span class="line">            sal <span class="keyword">double</span>,</span><br><span class="line">            comm <span class="keyword">double</span>,</span><br><span class="line">            deptno <span class="built_in">int</span></span><br><span class="line">             ) <span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span></span><br><span class="line">            location <span class="string">'/data/hive'</span>;</span><br><span class="line"></span><br><span class="line">hadoop fs -put emp.txt /data/hive/</span><br><span class="line"></span><br><span class="line">hadoop fs -put emp.txt /data/hive/1</span><br></pre></td></tr></table></figure>
+<p>data/hive 目录下有emp.txt 和1 这两个文件，emp4表有30条数据（两个文件数据量之和）</p>
+<p><strong>数据写入文件系统</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> OVERWRITE [<span class="keyword">LOCAL</span>] <span class="keyword">DIRECTORY</span> directory1</span><br><span class="line">  [<span class="keyword">ROW</span> <span class="keyword">FORMAT</span> row_format] [<span class="keyword">STORED</span> <span class="keyword">AS</span> file_format] (Note: <span class="keyword">Only</span> available <span class="keyword">starting</span> <span class="keyword">with</span> Hive <span class="number">0.11</span><span class="number">.0</span>)</span><br><span class="line">  <span class="keyword">SELECT</span> ... <span class="keyword">FROM</span> ...</span><br><span class="line"> </span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">LOCAL</span> <span class="keyword">DIRECTORY</span> <span class="string">'/home/hadoop/hivetmp'</span> (当前机器-本地)</span><br><span class="line"><span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp;</span><br><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">DIRECTORY</span> <span class="string">'/hivetmp'</span>                   （非本地hdfs）</span><br><span class="line"><span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+<p><strong>通过shell 命令筛选</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive -e '<span class="keyword">select</span> * <span class="keyword">from</span> hive1.emp <span class="keyword">limit</span> <span class="number">5</span><span class="string">' | grep SMITH</span></span><br></pre></td></tr></table></figure>
+<h4 id="import-export集群迁移">import /export<strong>集群迁移</strong></h4>
+<p>The <code>EXPORT</code> and <code>IMPORT</code> commands work independently of the source and target metastore DBMS used; for example, they can be used between Derby and MySQL databases.</p>
+<h5 id="export">export</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXPORT TABLE tablename [PARTITION (part_column="value"[, ...])]</span><br><span class="line">  TO 'export_target_path' [ FOR replication('eventid') ]</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hive (hive1)&gt; export table hive1.emp to '/hive_export/emp';</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop001 hivetmp]$ hadoop fs -ls /hive_export_/emp</span><br><span class="line">-rwxr-xr-x   1 hadoop supergroup       1549 2020-12-14 14:51 /hive_export/emp/_metadata</span><br><span class="line">drwxr-xr-x   - hadoop supergroup          0 2020-12-14 14:51 /hive_export/emp/data</span><br></pre></td></tr></table></figure>
+<h5 id="import">import</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IMPORT [[EXTERNAL] TABLE new_or_original_tablename [PARTITION (part_column="value"[, ...])]]</span><br><span class="line">  FROM 'source_path'</span><br><span class="line">  [LOCATION 'import_target_path']</span><br></pre></td></tr></table></figure>
+<p>例子：直接通过_metadata来创建的</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IMPORT TABLE hive1.emp_import FROM '/hive_export/emp';</span><br></pre></td></tr></table></figure>
+<h4 id="select">select</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> empno <span class="keyword">as</span> <span class="keyword">id</span>, ename <span class="keyword">name</span> <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>聚合函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">deptno, <span class="keyword">avg</span>(sal) avg_sal</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">emp</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"><span class="keyword">having</span> avg_sal&gt;<span class="number">2000</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>tip: mr 太慢的时候：local mode 方式会快一些</p>
+<p>练习：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">emp和dept: deptno相等   查询结果：empno、ename、dname</span><br><span class="line">inner join:</span><br><span class="line"><span class="keyword">select</span> e.empno, e.ename, d.dname</span><br><span class="line"><span class="keyword">from</span> emp e <span class="keyword">join</span> dept d </span><br><span class="line"><span class="keyword">on</span> e.deptno = d.deptno;</span><br></pre></td></tr></table></figure>
+<p>e.empno	e.ename	_c2	d.dname<br>
+8888	HIVE	NULL	NULL<br>
+NULL	NULL	40	OPERATIONS</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">e.empno, e.ename, nvl(e.deptno,d.deptno), d.dname</span><br><span class="line"><span class="keyword">from</span> emp e <span class="keyword">full</span> <span class="keyword">join</span> dept d</span><br><span class="line"><span class="keyword">on</span> e.deptno = d.deptno</span><br><span class="line"><span class="keyword">where</span> e.deptno <span class="keyword">is</span> <span class="literal">null</span> <span class="keyword">or</span> d.deptno <span class="keyword">is</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>nvl（default value, when null value）: 默认的值，默认为空时取值</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Hive04/" data-toggle="tooltip" data-placement="top" title="Hive04">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Hive02/" data-toggle="tooltip" data-placement="top" title="Hive02">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#dmlloadinsertupdatedeletemerge"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">DML(load/insert/update/delete/merge)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#load"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">load</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#insert"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">insert</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#import-export集群迁移"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">import /export<strong>&#x96C6;&#x7FA4;&#x8FC1;&#x79FB;</strong></span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#export"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">export</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#import"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">import</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#select"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">select</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Hive" title="Hive">Hive</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'rz'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/MaggieCN">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Maggie 2020 
+                    By <a href="http://www.ruozedata.com">若泽数据，企业在职</a> | BigData
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ruozedata&repo=Bigdata&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.ruozedata.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.ruozedata.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

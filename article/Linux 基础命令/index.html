@@ -298,7 +298,7 @@
 <li>vi 敲完 wq也保存，也不怕</li>
 </ul>
 <hr>
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201119084837813.png" alt="image-20201119084837813"></p>
+<p><img src="/article/Linux 基础命令/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201119084837813.png" alt="image-20201119084837813"></p>
 <p><strong>swap</strong> 未正确保存退出</p>
 <p><strong>进入提示是 swap文件，只需ll -a查看，进行删除即可</strong></p>
 <p>E325: ATTENTION</p>
@@ -459,16 +459,12 @@
 </ul>
 <h3 id="su-ampamp-sudo">su &amp;&amp; sudo</h3>
 <ul>
-<li>
-<p>su xx 切换用户</p>
-</li>
-<li>
-<p>su - xx 切换用户 进入家目录 且执行该用户环境变量文件 .bashrc</p>
-</li>
-<li>
-<p>sudo 普通用户临时使用root的最大权限</p>
-</li>
+<li>su xx 切换用户</li>
+<li>su - xx 切换用户 进入家目录 且执行该用户环境变量文件 .bashrc</li>
+<li>sudo 普通用户临时使用root的最大权限</li>
 </ul>
+<p><strong>配置sudo</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sudoers（使用sudo之前需要先进行配置）</span><br><span class="line"></span><br><span class="line">在文件的如下位置，为hadoop添加一行即可</span><br><span class="line"></span><br><span class="line">root     ALL=(ALL)       ALL</span><br><span class="line">hadoop   ALL=(ALL)       ALL</span><br><span class="line"></span><br><span class="line">然后，hadoop用户就可以用sudo来执行系统级别的指令</span><br></pre></td></tr></table></figure>
 
                 
 

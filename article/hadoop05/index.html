@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          MaggieCN | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.ruozedata.com/article/hadoop05/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/time.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Maggie on
+                            2020-12-15
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MaggieCN&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>hadoop05-mapreduce/yarn</p>
+<p><strong>mapreduce —— hive 的执行引擎也就是mapreduce</strong></p>
+<h3 id="分布式计算框架">分布式计算框架</h3>
+<h4 id="map-映射">map 映射</h4>
+<ul>
+<li>指的是一组数据按照规则映射为一组</li>
+<li>读取文件，将文件内容按照一定的规则，拆分成《k,v》的形式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例如：string = aba</span><br><span class="line">map(string)</span><br><span class="line">结果： (a,1)   (b,1)  (a,1)</span><br><span class="line">1表示出现一次</span><br></pre></td></tr></table></figure>
+<h4 id="reduce-归约">reduce 归约</h4>
+<p>就是把上面的三个结果，一样的key 组合在一起</p>
+<p>(a,2) (b,1)</p>
+<h3 id="shuffle-洗牌">shuffle 洗牌</h3>
+<p>数据根据key进行<strong>网络传输</strong>规整到一起，按规则计算</p>
+<h3 id="mapreduce-架构设计-面试题">Mapreduce 架构设计 ——面试题</h3>
+<p>=》mr 在yarn上的提交流程</p>
+<p>=》yarn的架构设计</p>
+<h4 id="container-容器-虚拟化的概念">container 容器 虚拟化的概念</h4>
+<ul>
+<li>
+<p>资源分配的体现就是抽象概念“容器”（Container）。</p>
+</li>
+<li>
+<p>Container将内存、CPU、磁盘、网络等资源封装在一起，这样可以起到限定资源边界的作用。</p>
+</li>
+<li>
+
+</li>
+</ul>
+<h3 id=""></h3>
+<p>【oom-kill 机制】</p>
+<p>是内核中的一个进程，当系统出现严重内存不足时，它就会启用自己的算法去选择某一个进程并杀掉。</p>
+<p><a href="https://www.jianshu.com/p/85ac4bdcb9ba" target="_blank" rel="noopener">https://www.jianshu.com/p/85ac4bdcb9ba</a></p>
+<h3 id="yarn-资源调度流程-1h1325简述">yarn 资源调度流程 1h‘13’25(简述)</h3>
+<ol>
+<li>启动主程序，申请领取资源</li>
+<li>我们运行task任务直到任务完成</li>
+<li>主程序运行在nm 上，第一个container 容器是来运行主程序的</li>
+</ol>
+<ul>
+<li><a href="https://www.cnblogs.com/qingyunzong/p/8615096.html" target="_blank" rel="noopener">https://www.cnblogs.com/qingyunzong/p/8615096.html</a></li>
+<li>Client: 客户端</li>
+<li>Resouce Manager: Applications Manager+Resource Scheduler(资源调度器) 主控节点，负责协调和管理整个集群。
+<ul>
+<li>Application Manager: 向资源调度器申请执行任务的资源容器Container，运行用户自己的程序任务job（我们可以用浏览器看yarn里的job进展），监控整个任务的执行，跟踪整个任务的状态，处理任务失败以异常情况。</li>
+</ul>
+</li>
+<li>Node Manager: 管理Yarn 中的每一个节点。比如监视资源使用情况（ CPU，内存，硬盘，网络），跟踪节点健康等。</li>
+</ul>
+<p><img src="https://images2018.cnblogs.com/blog/1228818/201803/1228818-20180324155754097-1779386657.png" alt="img"></p>
+<ol>
+<li>
+<p>用户向 YARN 中提交应用程序，其中包括 MRAppMaster 程序，启动 MRAppMaster 的命令， 用户程序等。</p>
+</li>
+<li>
+<p><strong>ResourceManager 为该程序分配第一个 Container</strong>，并与对应的 NodeManager 通讯，要求 它在这个 Container 中启动应用程序 MRAppMaster。</p>
+</li>
+<li>
+<p>MRAppMaster 首先向 ResourceManager 注册，这样用户可以直接通过 ResourceManager 查看应用程序的运行状态，然后将为各个任务申请资源，并监控它的运行状态，直到运行结束，重复 4 到 7 的步骤。</p>
+</li>
+<li>
+<p>MRAppMaster 采用<strong>轮询</strong>的方式通过 <strong>RPC</strong> 协议向 ResourceManager 申请和领取资源。</p>
+</li>
+<li>
+<p>一旦 MRAppMaster 申请到资源后，便与对应的 NodeManager 通讯，要求它启动任务。</p>
+</li>
+<li>
+<p>NodeManager 为任务设置好运行环境（包括环境变量、JAR 包、二进制程序等）后，将 任务启动命令写到一个脚本中，并通过运行该脚本启动任务。</p>
+</li>
+<li>
+<p>各个任务通过某个 RPC 协议向 MRAppMaster 汇报自己的状态和进度，以让 MRAppMaster 随时掌握各个任务的运行状态，从而可以在任务败的时候重新启动任务。</p>
+</li>
+<li>
+<p>应用程序运行完成后，MRAppMaster 向 ResourceManager <strong>注销</strong>并关闭自己。</p>
+</li>
+</ol>
+<h3 id="yarn-三种调度器">YARN 三种调度器</h3>
+<p><a href="https://blog.csdn.net/qq_46893497/article/details/110727784" target="_blank" rel="noopener">https://blog.csdn.net/qq_46893497/article/details/110727784</a></p>
+<h3 id="wordcount-过程ampamp-代码">WordCount 过程&amp;&amp; 代码</h3>
+<p><img src="/article/hadoop05/C:%5CUsers%5CAdministrator%5CDesktop%5CWordCount.jpg" alt="WordCount"></p>
+<p>map 阶段：input, splitting, mapping</p>
+<p>reduce 阶段： shuffling, reducing, final result</p>
+<p>split: 根据块大小和文件个数来切片的</p>
+<p>​	280M 的文件，每个块是128M, 分三个，128，128，4</p>
+<ul>
+<li>
+<p>下面是官网的wordcount.java</p>
+</li>
+<li>
+<p>包含三个方法，map,reduce 还有主函数</p>
+</li>
+<li>
+<p>TokenizerMapper :</p>
+</li>
+<li>
+<p>IntSumReducer :</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenizerMapper</span> </span></span><br><span class="line"><span class="class">       <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context</span></span></span><br><span class="line"><span class="function"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">      StringTokenizer itr = <span class="keyword">new</span> StringTokenizer(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);  			                         </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSumReducer</span> </span></span><br><span class="line"><span class="class">       <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>,<span class="title">IntWritable</span>,<span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, </span></span></span><br><span class="line"><span class="function"><span class="params">                       Context context</span></span></span><br><span class="line"><span class="function"><span class="params">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);   <span class="number">3</span></span><br><span class="line">      context.write(key, result);   car,<span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    Configuration conf = <span class="keyword">new</span> Configuration();</span><br><span class="line">    String[] otherArgs = <span class="keyword">new</span> GenericOptionsParser(conf, args).getRemainingArgs();</span><br><span class="line">    <span class="keyword">if</span> (otherArgs.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">      System.err.println(<span class="string">"Usage: wordcount &lt;in&gt; [&lt;in&gt;...] &lt;out&gt;"</span>);</span><br><span class="line">      System.exit(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Job job = <span class="keyword">new</span> Job(conf, <span class="string">"word count"</span>);</span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    job.setCombinerClass(IntSumReducer.class);</span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; otherArgs.length - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">      FileInputFormat.addInputPath(job, <span class="keyword">new</span> Path(otherArgs[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    FileOutputFormat.setOutputPath(job,</span><br><span class="line">      <span class="keyword">new</span> Path(otherArgs[otherArgs.length - <span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/erp/" data-toggle="tooltip" data-placement="top" title="项目-ERP">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Hive05/" data-toggle="tooltip" data-placement="top" title="Hive05">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'rz'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/MaggieCN">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Maggie 2020 
+                    By <a href="http://www.ruozedata.com">若泽数据，企业在职</a> | BigData
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ruozedata&repo=Bigdata&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.ruozedata.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.ruozedata.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

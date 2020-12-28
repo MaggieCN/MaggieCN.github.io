@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Hive02 - MaggieCN | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.ruozedata.com/article/Hive02/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/time.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Hive" title="Hive">Hive</a>
+                            
+                        </div>
+                        <h1>Hive02</h1>
+                        <h2 class="subheading">Hive DDL 命令/ 内部表&amp;&amp;外部表</h2>
+                        <span class="meta">
+                            Posted by Maggie on
+                            2020-12-06
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MaggieCN&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="hive-默认引擎">Hive 默认引擎</h3>
+<p>hive&gt; set hive.execution.engine;   ## 查看<br>
+hive.execution.engine=mr<br>
+hive&gt; set hive.execution.engine=tez;     ## 改名字</p>
+<p>推荐更改下面两个参数（这两个默认参数都是false），比较方便我们后续查询以及显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>##是否打印列名 在header</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	  &lt;name&gt;hive.cli.print.header&lt;/name&gt;</span><br><span class="line">	  &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"><span class="meta">#</span>## 是否显示当前数据库名称</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	  &lt;name&gt;hive.cli.print.current.db&lt;/name&gt;</span><br><span class="line">	  &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="hive-中参数设置的几种方式">Hive 中参数设置的几种方式：</h3>
+<ul>
+<li>
+<p>hive-site.xml 全局</p>
+</li>
+<li>
+<p>hive --hiveconf hive.cli.print.current.db=false</p>
+</li>
+<li>
+<p>hive&gt; set  hive --hiveconf hive.cli.print.current.db=false</p>
+</li>
+</ul>
+<p>后两种就只在当前窗口，当前hive启动时生效</p>
+<p><strong>生产上一定要set之后再恢复默认值或者设定值</strong></p>
+<p>hive&gt; set  hive --hiveconf hive.cli.print.current.db=false</p>
+<p>sql1</p>
+<p>hive&gt; set  hive --hiveconf hive.cli.print.current.db=true</p>
+<p>sql1</p>
+<p><strong>优先级</strong></p>
+<p>hive-site.xml &lt; hive --hiveconf &lt; set a=b</p>
+<h3 id="hive-命令">Hive 命令</h3>
+<p><strong>hive -help 可以查看</strong></p>
+<p>-e  SQL语句</p>
+<p>-f   SQL 文件</p>
+<p>–hiveconf  传递设置参数</p>
+<p>-i  初始化hive的sql文件（定义udf函数）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive -e "select * from pk_handsome"</span><br></pre></td></tr></table></figure>
+<h3 id="hive-ddl-命令">Hive DDL 命令</h3>
+<p>[DDL]<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL</a></p>
+<p>以下所有内容都摘自官网，一定有问题找官网！！</p>
+<h4 id="database">DataBase</h4>
+<h5 id="create-database-创建数据库">Create Database 创建数据库</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name</span><br><span class="line">  [COMMENT database_comment] ## 描述这个database</span><br><span class="line">  [LOCATION hdfs_path]       ## external tables 外部表路径</span><br><span class="line">  [MANAGEDLOCATION hdfs_path] ## the default directory for managed tables 内部表路径</span><br><span class="line">  [WITH DBPROPERTIES (property_name=property_value, ...)]; ## 数据库属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">CREATE DATABASE IF NOT EXISTS hive1 COMMENT 'number one hive' </span><br><span class="line">LOCATION '/dw_directory/hive1' WITH DBPROPERTIES ('creator'='maggie', 'blog'='maggiecn');</span><br></pre></td></tr></table></figure>
+<p>默认的default 数据库的路径：/user/hive/warehouse</p>
+<p>自己建的路径： /user/hive/warehouse/database_name.db</p>
+<h5 id="alter-database">ALTER Database</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ALTER (DATABASE|SCHEMA) database_name SET DBPROPERTIES (property_name=property_value, ...);   -- (Note: SCHEMA added in Hive 0.14.0)</span><br><span class="line"> </span><br><span class="line">ALTER (DATABASE|SCHEMA) database_name SET OWNER [USER|ROLE] user_or_role;   -- (Note: Hive 0.13.0 and later; SCHEMA added in Hive 0.14.0)</span><br><span class="line">  </span><br><span class="line">ALTER (DATABASE|SCHEMA) database_name SET LOCATION hdfs_path; -- (Note: Hive 2.2.1, 2.4.0 and later)</span><br><span class="line"> </span><br><span class="line">ALTER (DATABASE|SCHEMA) database_name SET MANAGEDLOCATION hdfs_path; -- (Note: Hive 4.0.0 and later)</span><br></pre></td></tr></table></figure>
+<h5 id="drop-database">DROP Database</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP (DATABASE|SCHEMA) [IF EXISTS] database_name [RESTRICT|CASCADE];</span><br></pre></td></tr></table></figure>
+<p>空数据库可以直接删，否则报错</p>
+<h5 id="use-database">USE Database</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE database_name;</span><br><span class="line">USE DEFAULT;</span><br></pre></td></tr></table></figure>
+<h4 id="hive-分隔符">Hive 分隔符</h4>
+<p>Row Format : <strong>RegEx</strong><strong>JSON</strong><strong>CSV/TSV</strong></p>
+<p>空格或者’\t’</p>
+<h4 id="table">Table</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE：指定要创建的表的名字</span><br><span class="line">col_name data_type：列名以及对应的数据类型，多个列之间使用逗号分隔</span><br><span class="line">PARTITIONED BY：指定分区</span><br><span class="line">CLUSTERED BY： 排序、分桶</span><br><span class="line">ROW FORMAT：指定数据的分隔符等信息</span><br><span class="line">STORED AS：指定表存储的数据格式：textfile rc orc parquet</span><br><span class="line">LOCATION：指定表在文件系统上的存储路径</span><br><span class="line">AS select_statement: 通过select的sql语句的结果来创建表</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp(</span><br><span class="line">    empno <span class="built_in">int</span>,</span><br><span class="line">    ename <span class="keyword">string</span>, </span><br><span class="line">    job <span class="keyword">string</span>,</span><br><span class="line">    mgr <span class="built_in">int</span>,</span><br><span class="line">    hiredate <span class="keyword">string</span>,</span><br><span class="line">    sal <span class="keyword">double</span>,</span><br><span class="line">    comm <span class="keyword">double</span>,</span><br><span class="line">    deptno <span class="built_in">int</span></span><br><span class="line">) <span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span></span><br></pre></td></tr></table></figure>
+<p>load data local inpath ‘/home/hadoop/data/emp.txt’ overwrite into table emp_managed;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp2 <span class="keyword">like</span> emp;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> emp3 <span class="keyword">as</span> <span class="keyword">select</span> * <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>inverse和cascade<br>
+*inverse是控制方上的反转，只影响存储<br>
+*cascade是级联，是操作上的连锁反应</p>
+<h3 id="内部表ampamp外部表">内部表&amp;&amp;外部表</h3>
+<pre><code>内部表/MANAGED_TABLE：创建语法create table xxx;
+	删除表之后：HDFS和MySQL的数据都被删除了
+外部表：创建语法create EXTERNAL table xxx;
+	删除表之后：MySQL的数据都被删除了，但是HDFS的数据是还存在的
+</code></pre>
+<ul>
+<li>外部表</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> emp_external(</span><br><span class="line">empno <span class="built_in">int</span>,</span><br><span class="line">ename <span class="keyword">string</span>,</span><br><span class="line">job <span class="keyword">string</span>,</span><br><span class="line">mgr <span class="built_in">int</span>,</span><br><span class="line">hiredate <span class="keyword">string</span>,</span><br><span class="line">sal <span class="keyword">double</span>,</span><br><span class="line">comm <span class="keyword">double</span>,</span><br><span class="line">deptno <span class="built_in">int</span></span><br><span class="line">) <span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span></span><br><span class="line">LOCATION <span class="string">'/dw_directory/emp_external'</span>;</span><br></pre></td></tr></table></figure>
+<p>内部表外部表相互转换 EXTERNAL 一定要大写</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> emp_external <span class="keyword">SET</span> TBLPROPERTIES (<span class="string">'EXTERNAL'</span> = <span class="string">'false'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>内部表：managed_table</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dept(</span><br><span class="line">deptno <span class="built_in">int</span>,</span><br><span class="line">dname <span class="keyword">string</span>,</span><br><span class="line">loc <span class="keyword">string</span></span><br><span class="line">) <span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">'\t'</span>;</span><br></pre></td></tr></table></figure>
+<p>load data local inpath ‘/home/hadoop/data/dept.txt’ overwrite into table dept;</p>
+<p>创建语法： create table pk;</p>
+<p>desc table 查看表详情</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">###</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name </span><br><span class="line"><span class="keyword">ADD</span>|<span class="keyword">REPLACE</span> <span class="keyword">COLUMNS</span> (col_name data_type [<span class="keyword">COMMENT</span> col_comment], ...)</span><br><span class="line">[<span class="keyword">CASCADE</span>|RESTRICT] </span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dept <span class="keyword">ADD</span> <span class="keyword">COLUMNS</span>(info <span class="keyword">string</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name   <span class="keyword">CHANGE</span>  col_old_name col_new_name column_type</span><br><span class="line">  [<span class="keyword">COMMENT</span> col_comment] [<span class="keyword">FIRST</span>|<span class="keyword">AFTER</span> column_name] [<span class="keyword">CASCADE</span>|RESTRICT];</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dept <span class="keyword">CHANGE</span> info infos <span class="keyword">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dept <span class="keyword">REPLACE</span> <span class="keyword">COLUMNS</span>(deptno <span class="built_in">int</span>, dname <span class="keyword">string</span>, loc <span class="keyword">string</span>);</span><br></pre></td></tr></table></figure>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ChangeColumnName/Type/Position/Comment" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ChangeColumnName/Type/Position/Comment</a></p>
+<h4 id="truncatedrop-对比">truncate/drop 对比</h4>
+<p>truncate 删除data (不能删除外部表)</p>
+<p>drop 删除metadata&amp;&amp; data</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> [<span class="keyword">table</span>] tablename;</span><br></pre></td></tr></table></figure>
+<p>内部表删除： truncate emp3;</p>
+<p>外部表删除： cannot truncate non-managed table</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Hive03/" data-toggle="tooltip" data-placement="top" title="Hive03">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/hive01/" data-toggle="tooltip" data-placement="top" title="Hive01">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-默认引擎"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Hive &#x9ED8;&#x8BA4;&#x5F15;&#x64CE;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-中参数设置的几种方式"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Hive &#x4E2D;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x7684;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-命令"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Hive &#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-ddl-命令"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Hive DDL &#x547D;&#x4EE4;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#database"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">DataBase</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#create-database-创建数据库"><span class="toc-nav-number">4.1.1.</span> <span class="toc-nav-text">Create Database &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#alter-database"><span class="toc-nav-number">4.1.2.</span> <span class="toc-nav-text">ALTER Database</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#drop-database"><span class="toc-nav-number">4.1.3.</span> <span class="toc-nav-text">DROP Database</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#use-database"><span class="toc-nav-number">4.1.4.</span> <span class="toc-nav-text">USE Database</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#hive-分隔符"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">Hive &#x5206;&#x9694;&#x7B26;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#table"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">Table</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#内部表ampamp外部表"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x5185;&#x90E8;&#x8868;&amp;&amp;&#x5916;&#x90E8;&#x8868;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#truncatedrop-对比"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">truncate/drop &#x5BF9;&#x6BD4;</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Hive" title="Hive">Hive</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'rz'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/MaggieCN">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Maggie 2020 
+                    By <a href="http://www.ruozedata.com">若泽数据，企业在职</a> | BigData
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ruozedata&repo=Bigdata&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.ruozedata.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.ruozedata.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

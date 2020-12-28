@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Hive01 - MaggieCN | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.ruozedata.com/article/hive01/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/time.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Hive" title="Hive">Hive</a>
+                            
+                        </div>
+                        <h1>Hive01</h1>
+                        <h2 class="subheading">Hive01</h2>
+                        <span class="meta">
+                            Posted by Maggie on
+                            2020-12-05
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MaggieCN&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="基础网站">基础网站</h3>
+<p>顶级项目：<a href="http://xxx.apache.org" target="_blank" rel="noopener">xxx.apache.org</a></p>
+<p>git: <a href="http://github.com/apache/xxx" target="_blank" rel="noopener">github.com/apache/xxx</a></p>
+<p>cdh: <a href="http://archive.cloudera.com/cdh5/cdh/5" target="_blank" rel="noopener">archive.cloudera.com/cdh5/cdh/5</a></p>
+<p>hadoop\hive\sqoop\hbase 选择尾号是相同的（版本兼容）</p>
+<p>但spark尾号 除外</p>
+<h3 id="上课问题">上课问题</h3>
+<p><u>为什么选择hadoop2学习，不选3学习</u></p>
+<p>2稳定，兼容</p>
+<p><u>hdfs的数据能否使用hive来处理？</u></p>
+<p>可以！</p>
+<h3 id="hive概念">Hive概念</h3>
+<p>官网：<a href="http://hive.apache.org" target="_blank" rel="noopener">hive.apache.org</a></p>
+<p><strong>官网下两个网站必用：</strong></p>
+<p>getting started suide</p>
+<p>hive wiki(网速差打不开)</p>
+<p>The Apache Hive ™ data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. Structure can be projected onto data already in storage. A command line tool and JDBC driver are provided to connect users to Hive.</p>
+<ul>
+<li>使用SQL 完成大数据统计分析</li>
+<li>读、写、管理大的数据集（在我们分布式的存储系统上）</li>
+<li>distributed storage: HDFS、S3 、OSS、COS</li>
+<li>Hive 里面的数据，外面是可以通过jdbc的来访问</li>
+<li>hive: facebook 解决海量的结构化日志的统计问题（基于日志做统计分析）</li>
+</ul>
+<h3 id="hive-架构">Hive 架构</h3>
+<p><img src="/article/hive01/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201208123007556.png" alt="image-20201208123007556"></p>
+<p><img src="/article/hive01/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201208123023747.png" alt="image-20201208123023747"></p>
+<p><strong>Hive是构建在hadoop之上的数据仓库（狭义）——HDFS\ YARN\ MR</strong></p>
+<p>hdfs： hive的数据存放在分布式存储中（HDFS）, 元数据是存在metastore 底层数据库中（mysql）</p>
+<p>mr: hive作业（sql）通过hive的框架翻译成mr作业</p>
+<p>目前mr已经被淘汰了， tez\spark</p>
+<p>不管底层到底是使用什么引擎，对于用户来说是不感知</p>
+<p>同样的sql, 只需要通过一个参数切换，就可以运行不同的执行引擎之上</p>
+<p>hadoop: 开发可以使用单机，生产上肯定是分布式</p>
+<p>hive没有集群的概念，就是个客户端（就是个提交机器）-作业都在yarn进行</p>
+<p>yarn: hive 的作业是提交到yarn上运行</p>
+<p><strong>hive职责：将sql 翻译成底层对应的执行引擎作业</strong></p>
+<p>统一的元数据管理（metadata）== metastore</p>
+<p>元数据概念：描述数据的数据  schema</p>
+<p>不能停留在应用层面上</p>
+<p><strong>生产上需要注意：</strong></p>
+<p>需要考虑-HA: 高可用</p>
+<p>mysql 不具备高可用</p>
+<p>至少要有两个mysql</p>
+<p>active down 掉- 切到standby 里</p>
+<h3 id="hive-amp-rdbms关系型数据库">hive &amp; rdbms(关系型数据库)</h3>
+<p>都是支持分布式的</p>
+<p>不同：</p>
+<p>节点数：hive 多节点</p>
+<p>成本： hive低（廉价机器上）</p>
+<p>数据量：</p>
+<p>hive 支持update 但是0.14 版本以后开始支持，而且生产上离线数据不建议使用</p>
+<p>事务：都支持，但是大数据没有实际性用途</p>
+<p>延时性： mysql 延时短/ 离线作业（处理）时间长</p>
+<p>hive 适用场景：</p>
+<p>批处理、离线处理，延时性大，尽量少涉及到update/delete</p>
+<p>hive 优点：</p>
+<p>容易上手、比mr简单的多，写sql就可以</p>
+<p>缺点：高延时</p>
+<p><u>hive的执行速度vs mysql 执行速度谁快谁慢？</u></p>
+<p>hive sql / mysql sql 有啥关系</p>
+<p>hive是建立在mysql之上的</p>
+<h3 id="hive-安装">Hive 安装</h3>
+<ul>
+<li>安装步骤跟hdfs一样，可参考hdfs01</li>
+</ul>
+<p><strong>Hive 文件夹中常用的</strong></p>
+<p>auxlib - 存放jar包 -udf函数编程会将</p>
+<p>conf- Hive 相关的配置文件</p>
+<p>lib - hive 相关的jar包</p>
+<p>bin - hive 相关脚本</p>
+<p><strong>安装命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cd software/</span><br><span class="line">rz</span><br><span class="line">tar -xzvf hive-1.1.0-cdh5.16.2.tar.gz -C ../app/</span><br><span class="line">cd ../app</span><br><span class="line">ln -s hive-1.1.0-cdh5.16.2 hive</span><br><span class="line">cd</span><br><span class="line">vi .bashrc</span><br><span class="line">export HIVE_HOME=/home/hadoop/app/hive</span><br><span class="line">export PATH=$HIVE_HOME/bin:$PATH</span><br><span class="line">source .bashrc</span><br><span class="line">cd app/hive/bin/</span><br><span class="line">./hive</span><br></pre></td></tr></table></figure>
+<p><strong>常用命令：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">!clear; #清屏</span><br><span class="line"></span><br><span class="line">show databases; # Hive中默认有一个数据库，名称叫default</span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> pk_test2(<span class="keyword">id</span> <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> pk_test2;</span><br><span class="line">insert into pk_test2 values(1);# 生产上不会用的</span><br></pre></td></tr></table></figure>
+<p>insert等命令虽然Hive 可用，但是生产上不可以！</p>
+<p>下面我们可以试着创建表试一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">hive&gt;</span> create table pk_test2(id int);</span><br><span class="line">OK</span><br><span class="line">Time taken: 0.242 seconds</span><br><span class="line"><span class="meta">hive&gt;</span> insert into pk_test2 values(1);</span><br><span class="line">Query ID = hadoop_20201206185656_66b4c1d6-876f-477e-be2b-d280a1716cb7</span><br><span class="line">Total jobs = 3</span><br><span class="line">Launching Job 1 out of 3</span><br><span class="line">Number of reduce tasks is set to 0 since there's no reduce operator</span><br><span class="line">Starting Job = job_1606808470141_0002, Tracking URL = http://hadoop001:7776/proxy/application_1606808470141_0002/</span><br><span class="line">Kill Command = /home/hadoop/app/hadoop/bin/hadoop job  -kill job_1606808470141_0002</span><br><span class="line">Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0</span><br><span class="line">2020-12-06 18:56:22,200 Stage-1 map = 0%,  reduce = 0%</span><br><span class="line">2020-12-06 18:56:27,406 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.38 sec</span><br><span class="line">MapReduce Total cumulative CPU time: 2 seconds 380 msec</span><br><span class="line">Ended Job = job_1606808470141_0002</span><br><span class="line">Stage-4 is selected by condition resolver.</span><br><span class="line">Stage-3 is filtered out by condition resolver.</span><br><span class="line">Stage-5 is filtered out by condition resolver.</span><br><span class="line">Moving data to: hdfs://hadoop001:9000/user/hive/warehouse/pk_test2/.hive-staging_hive_2020-12-06_18-56-14_953_3566160741759572615-1/-ext-10000</span><br><span class="line">Loading data to table default.pk_test2</span><br><span class="line">Table default.pk_test2 stats: [numFiles=1, numRows=1, totalSize=2, rawDataSize=1]</span><br><span class="line">MapReduce Jobs Launched: </span><br><span class="line">Stage-Stage-1: Map: 1   Cumulative CPU: 2.38 sec   HDFS Read: 3547 HDFS Write: 74 SUCCESS</span><br><span class="line">Total MapReduce CPU Time Spent: 2 seconds 380 msec</span><br><span class="line">OK</span><br><span class="line">Time taken: 13.725 seconds</span><br></pre></td></tr></table></figure>
+<p>在启动hive的同时，我们再打开一个窗口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 ~]# su - hadoop</span><br><span class="line">Last login: Sun Dec  6 18:45:44 CST 2020 on pts/0</span><br><span class="line">[hadoop@hadoop001 ~]$ cd $HIVE_HOME/</span><br><span class="line">[hadoop@hadoop001 hive]$ cd bin/</span><br><span class="line">[hadoop@hadoop001 bin]$ ls</span><br><span class="line">beeline  derby.log  ext  hive  hive-config.sh  hiveserver2  metastore_db  metatool  schematool</span><br></pre></td></tr></table></figure>
+<p>derby.log: derby 是hive 内置的数据库</p>
+<p>metastore_db:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 bin]$ ./hive</span><br><span class="line"><span class="meta">hive&gt;</span> show tables;</span><br><span class="line">FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</span><br></pre></td></tr></table></figure>
+<p>错误是：derby 是单session, 是单节点的</p>
+<p>我们可以查看日志log</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 conf]$ hive-log4j.properties</span><br><span class="line">hive.log.threshold=ALL</span><br><span class="line">hive.root.logger=WARN,DRFA</span><br><span class="line">hive.log.dir=$&#123;java.io.tmpdir&#125;/$&#123;user.name&#125;</span><br><span class="line">hive.log.file=hive.log</span><br></pre></td></tr></table></figure>
+<p>${java.io.tmpdir} 目录 /tmp/hadoop/</p>
+<p>log存放： /tmp/hadoop/hive.log</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">tail -200f  /tmp/hadoop/hive.log</span><br><span class="line"></span><br><span class="line">Caused by: java.sql.SQLException: Failed to start database 'metastore_db' with class loader sun.misc.Launcher$AppClassLoader@7cca494b, see the next exception for details.</span><br><span class="line"></span><br><span class="line">Caused by: ERROR XJ040: Failed to start database 'metastore_db' with class loader sun.misc.Launcher$AppClassLoader@7cca494b, see the next exception for details.</span><br><span class="line"></span><br><span class="line">Caused by: ERROR XSDB6: Another instance of Derby may have already booted the database /home/hadoop/app/hive-1.1.0-cdh5.16.2/bin/metastore_db.</span><br></pre></td></tr></table></figure>
+<p>但是生产上derby单节点肯定不行啊！所以我们要把hive的数据库改成mysql!</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi $HIVE_HOME/conf/hive-site.xml</span><br></pre></td></tr></table></figure>
+<p>需要提供mysql 一下信息配置</p>
+<p>IP port username passward jar包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">配置文件 $HIVE_HOME/conf/hive-site.xml	</span><br><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	  &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;</span><br><span class="line">	  &lt;value&gt;jdbc:mysql://localhost:3306/database?createDatabaseIfNotExist=true&amp;amp;useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	  &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;</span><br><span class="line">	  &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	  &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;</span><br><span class="line">	  &lt;value&gt;user&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	  &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;</span><br><span class="line">	  &lt;value&gt;password&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>下载mysql-connect-…的jar包放在lib目录下</p>
+<p>mysql -usuju -p(我的用户名是suju,你的如果是root  那命令就是mysql -uroot -p)</p>
+<p>select * from table;</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+Administration" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+Administration</a></p>
+<p>登录ip:50070 去查看我们hdfs元数据</p>
+<p>utilities-&gt;browse the file system  可以查看hdfs下的文件</p>
+<p>/user/hive/warehouse/table/000  可以查看到我们在hdfs上存储的数据</p>
+<p><strong>问题：hdfs Permission denied: user=dr.who, access=READ_EXECUTE, inode=&quot;/tmp&quot;:hadoop:supergroup:drwx------</strong></p>
+<p>解决方法： 是tmp权限不够</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -chmod g+w /tmp</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Hive02/" data-toggle="tooltip" data-placement="top" title="Hive02">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/数仓简单知识/" data-toggle="tooltip" data-placement="top" title="数仓简单知识">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基础网站"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x57FA;&#x7840;&#x7F51;&#x7AD9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#上课问题"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E0A;&#x8BFE;&#x95EE;&#x9898;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive概念"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Hive&#x6982;&#x5FF5;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-架构"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Hive &#x67B6;&#x6784;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-amp-rdbms关系型数据库"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">hive &amp; rdbms(&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hive-安装"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Hive &#x5B89;&#x88C5;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Hive" title="Hive">Hive</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ruozedata.com" target="_blank">若泽数据官网</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'rz'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/MaggieCN">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Maggie 2020 
+                    By <a href="http://www.ruozedata.com">若泽数据，企业在职</a> | BigData
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ruozedata&repo=Bigdata&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.ruozedata.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.ruozedata.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
